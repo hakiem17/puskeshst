@@ -1,87 +1,173 @@
 # Puskesmas Modern Website
 
-Website puskesmas modern dengan desain yang bersih dan profesional, terinspirasi dari [Puskesmas Setiabudi](https://puskesmassetiabudi.id).
+A modern, responsive website for Puskesmas (Community Health Center) with comprehensive admin dashboard for content management.
 
-## 🚀 Fitur
+## 🚀 Features
 
-- **Design Modern**: Interface yang bersih dan profesional
-- **Responsive**: Mobile-friendly design
-- **Fast Loading**: Optimized untuk performa terbaik
-- **SEO Friendly**: Struktur HTML yang baik untuk SEO
+### Main Website
+- **Responsive Design**: Modern UI/UX that works on all devices
+- **Multiple Pages**: Home, Gallery, Profile, Pengaduan, Pelayanan Publik
+- **Dynamic Content**: Real-time content updates from admin panel
+- **Image Management**: Upload and manage images for galleries
+- **Local Storage**: Client-side data persistence
 
-## 🛠️ Teknologi
+### Admin Dashboard
+- **Content Management**: Full CRUD operations for all content
+- **Hero Section**: Manage homepage slides and content
+- **Gallery Management**: Organize Infografis, Video, and Berita
+- **About & Contact**: Manage company information
+- **Website Settings**: Logo, favicon, and meta settings
+- **Pengaduan Content**: Manage complaint resolution content
 
-- **Backend**: Node.js + Express
-- **Database**: MongoDB
-- **Frontend**: HTML5 + CSS3 + JavaScript
-- **Icons**: Font Awesome
-- **Fonts**: Google Fonts (Inter)
+### Technical Features
+- **Express.js Backend**: RESTful API endpoints
+- **MongoDB Integration**: Database connectivity (optional)
+- **File Upload**: Image handling with base64 encoding
+- **Real-time Updates**: Live content synchronization
+- **Responsive Design**: Mobile-first approach
 
-## 📦 Instalasi
+## 📁 Project Structure
 
-1. **Clone repository**
-```bash
-git clone <repository-url>
-cd puskesmas
 ```
+puskes/
+├── public/                 # Frontend files
+│   ├── index.html         # Main website
+│   ├── admin.html         # Admin dashboard
+│   ├── login.html         # Login page
+│   ├── berita.html        # News page
+│   ├── infografis.html    # Infographics page
+│   ├── video.html         # Video page
+│   ├── visi-misi.html     # Vision & Mission
+│   ├── struktur-organisasi.html
+│   ├── maklumat-pelayanan.html
+│   ├── kompensasi-pelayanan.html
+│   ├── jangka-waktu-penyelesaian.html
+│   ├── mekanisme-pengaduan.html
+│   ├── pengelola-petugas.html
+│   └── sarana-pengaduan.html
+├── routes/
+│   └── admin.js           # API routes
+├── server.js              # Main server file
+├── package.json           # Dependencies
+└── README.md              # This file
+```
+
+## 🛠️ Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/hakiem17/puskeshst.git
+   cd puskeshst
+   ```
 
 2. **Install dependencies**
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-3. **Setup environment**
-```bash
-# Buat file .env
-NODE_ENV=development
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/puskesmas
-JWT_SECRET=your_jwt_secret_key_here
-JWT_EXPIRE=7d
-```
+3. **Start the server**
+   ```bash
+   npm start
+   # or
+   node server.js
+   ```
 
-4. **Start MongoDB**
-```bash
-# macOS
-brew services start mongodb-community
+4. **Access the application**
+   - Main Website: `http://localhost:3001`
+   - Admin Dashboard: `http://localhost:3001/admin`
+   - Login: `http://localhost:3001/login`
 
-# Ubuntu
-sudo systemctl start mongod
+## 🔧 Configuration
 
-# Windows
-net start MongoDB
-```
+### Environment Variables
+- `PORT`: Server port (default: 3001)
+- `MONGODB_URI`: MongoDB connection string (optional)
 
-5. **Run application**
-```bash
-npm run dev
-```
+### Default Login Credentials
+- **Username**: `admin`
+- **Password**: `admin123`
 
-## 🌐 Akses
+## 📱 Pages Overview
 
-- **Website**: http://localhost:5000
-- **API Health**: http://localhost:5000/api/health
+### Main Website
+- **Home**: Hero section, services, about, contact
+- **Gallery**: Infografis, Video, Berita with filtering
+- **Profile**: Vision & Mission, Organization Structure, Service Information
+- **Pengaduan**: Complaint resolution information
+- **Pelayanan Publik**: Public service information
 
-## 📱 Responsive Design
-
-Website ini fully responsive dan optimized untuk:
-- 📱 Mobile (320px+)
-- 📱 Tablet (768px+)
-- 💻 Desktop (1024px+)
+### Admin Dashboard
+- **Dashboard**: Overview and statistics
+- **Hero Section**: Manage homepage slides
+- **Services**: Manage service offerings
+- **Gallery**: Manage Infografis, Video, Berita
+- **About**: Manage about section content
+- **Contact**: Manage contact information
+- **Settings**: Website configuration
+- **Konten Pengaduan**: Manage complaint content
 
 ## 🎨 Design Features
 
-- **Clean Layout**: Design yang bersih dan mudah dibaca
-- **Professional Colors**: Color scheme yang sesuai dengan healthcare
-- **Smooth Animations**: Transisi yang smooth dan natural
-- **Modern Typography**: Font Inter untuk readability yang baik
+- **Modern UI**: Clean, professional design
+- **Responsive**: Mobile-first approach
+- **Interactive**: Smooth animations and transitions
+- **Accessible**: User-friendly navigation
+- **Fast Loading**: Optimized performance
 
-## 📞 Kontak
+## 🔒 Security
 
-- **Email**: info@puskesmas.com
-- **Phone**: (021) 1234-5678
-- **Address**: Jl. Kesehatan No. 123, Jakarta Selatan
+- **Admin Authentication**: Secure login system
+- **Input Validation**: Form validation and sanitization
+- **File Upload Security**: Image type and size validation
+- **XSS Protection**: Content sanitization
+
+## 🚀 Deployment
+
+### Local Development
+```bash
+npm start
+```
+
+### Production Deployment
+1. Set up environment variables
+2. Configure MongoDB connection (optional)
+3. Deploy to your preferred hosting platform
+4. Set up SSL certificate for HTTPS
+
+## 📝 API Endpoints
+
+### Admin Routes
+- `POST /api/admin/hero` - Save hero section
+- `GET /api/admin/hero` - Get hero section
+- `POST /api/admin/about` - Save about section
+- `GET /api/admin/about` - Get about section
+- `POST /api/admin/contact` - Save contact section
+- `GET /api/admin/contact` - Get contact section
+- `POST /api/admin/website` - Save website settings
+- `GET /api/admin/website` - Get website settings
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👥 Author
+
+**Ahmad Hakim**
+- GitHub: [@hakiem17](https://github.com/hakiem17)
+- Repository: [puskeshst](https://github.com/hakiem17/puskeshst)
+
+## 📞 Support
+
+For support and questions, please open an issue on GitHub.
 
 ---
 
-**Dibuat dengan ❤️ untuk kesehatan masyarakat Indonesia**
+**Puskesmas Modern** - Modern Healthcare Website Solution
