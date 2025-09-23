@@ -20,11 +20,15 @@ A modern, responsive website for Puskesmas (Community Health Center) with compre
 - **Pengaduan Content**: Manage complaint resolution content
 
 ### Technical Features
-- **Express.js Backend**: RESTful API endpoints
-- **MongoDB Integration**: Database connectivity (optional)
+- **Express.js Backend**: RESTful API endpoints with middleware
+- **MongoDB Integration**: Database connectivity with Mongoose ODM
+- **JWT Authentication**: Secure admin login system
+- **Password Security**: bcryptjs hashing for secure passwords
+- **Input Validation**: express-validator for form validation
 - **File Upload**: Image handling with base64 encoding
-- **Real-time Updates**: Live content synchronization
-- **Responsive Design**: Mobile-first approach
+- **Real-time Updates**: Live content synchronization via localStorage
+- **Responsive Design**: Mobile-first CSS approach
+- **CORS Support**: Cross-origin resource sharing enabled
 
 ## 📁 Project Structure
 
@@ -52,7 +56,17 @@ puskes/
 └── README.md              # This file
 ```
 
-## 🛠️ Installation
+## 🛠️ Tech Stack
+
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB (with Mongoose ODM)
+- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
+- **Authentication**: JWT (JSON Web Tokens)
+- **Security**: bcryptjs for password hashing
+- **Validation**: express-validator
+- **Development**: nodemon for auto-restart
+
+## 🚀 Installation
 
 1. **Clone the repository**
    ```bash
@@ -65,23 +79,44 @@ puskes/
    npm install
    ```
 
-3. **Start the server**
+3. **Environment Setup** (Optional)
    ```bash
-   npm start
-   # or
-   node server.js
+   # Create .env file for MongoDB connection
+   echo "MONGODB_URI=mongodb://localhost:27017/puskesmas" > .env
    ```
 
-4. **Access the application**
+4. **Start the server**
+   ```bash
+   npm start
+   # or for development
+   npm run dev
+   ```
+
+5. **Access the application**
    - Main Website: `http://localhost:3001`
    - Admin Dashboard: `http://localhost:3001/admin`
    - Login: `http://localhost:3001/login`
+
+## 📦 Dependencies
+
+### Production Dependencies
+- **express**: ^4.18.2 - Web framework for Node.js
+- **mongoose**: ^8.0.3 - MongoDB object modeling tool
+- **cors**: ^2.8.5 - Cross-origin resource sharing
+- **bcryptjs**: ^2.4.3 - Password hashing library
+- **jsonwebtoken**: ^9.0.2 - JWT implementation
+- **dotenv**: ^16.3.1 - Environment variable loader
+- **express-validator**: ^7.0.1 - Input validation middleware
+
+### Development Dependencies
+- **nodemon**: ^3.0.2 - Auto-restart development server
 
 ## 🔧 Configuration
 
 ### Environment Variables
 - `PORT`: Server port (default: 3001)
 - `MONGODB_URI`: MongoDB connection string (optional)
+- `JWT_SECRET`: Secret key for JWT tokens (optional)
 
 ### Default Login Credentials
 - **Username**: `admin`
