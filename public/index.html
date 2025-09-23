@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puskesmas Modern - Pelayanan Kesehatan Terpercaya</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #2563eb;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-toggle i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+            pointer-events: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f8fafc;
+            color: #2563eb;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(59, 130, 246, 0.6) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .hero-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 10px;
+        }
+
+        .hero-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .hero-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .hero-arrow.prev {
+            left: 30px;
+        }
+
+        .hero-arrow.next {
+            right: 30px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #2563eb;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #ccc;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: #f8fafc;
+                margin-top: 10px;
+                border-radius: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-arrow {
+                display: none;
+            }
+
+        .hero-nav {
+            bottom: 20px;
+        }
+    }
+
+    /* Gallery Styles */
+    .gallery {
+        padding: 80px 0;
+        background: #f8fafc;
+    }
+
+    .gallery .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .gallery .section-title h2 {
+        font-size: 2.5rem;
+        color: #1e293b;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .gallery .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 2px;
+    }
+
+    .gallery .section-title p {
+        font-size: 1.1rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    .gallery-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .gallery-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-card-header {
+        padding: 20px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .gallery-card-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .gallery-card-logo img {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+    }
+
+    .gallery-card-title {
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-align: center;
+        flex: 1;
+        margin: 0 15px;
+    }
+
+    .gallery-card-image {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+    }
+
+    .gallery-card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-card:hover .gallery-card-image img {
+        transform: scale(1.05);
+    }
+
+    .gallery-card-tags {
+        padding: 15px 20px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .gallery-tag {
+        background: #10b981;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+
+    .gallery-button {
+        text-align: center;
+    }
+
+    .gallery-btn {
+        background: #3b82f6;
+        color: white;
+        padding: 15px 30px;
+        border: 2px solid #3b82f6;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .gallery-btn:hover {
+        background: transparent;
+        color: #3b82f6;
+        transform: translateY(-2px);
+    }
+
+    .gallery-btn i {
+        font-size: 1.2rem;
+    }
+
+    /* Responsive Gallery */
+    @media (max-width: 768px) {
+        .gallery {
+            padding: 60px 0;
+        }
+
+        .gallery .section-title h2 {
+            font-size: 2rem;
+        }
+
+        .gallery-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .gallery-card-header {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+
+        .gallery-card-title {
+            margin: 0;
+        }
+
+        .gallery-card-image {
+            height: 200px;
+        }
+    }
+
+    /* About Section Styles */
+    .about-section {
+        padding: 80px 0;
+        background: #fff;
+    }
+
+    .about-section .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .about-section .section-title h2 {
+        font-size: 2.5rem;
+        color: #1e293b;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .about-section .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 2px;
+    }
+
+    .about-section .section-title p {
+        font-size: 1.1rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    .about-content {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .about-description {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .about-description p {
+        font-size: 1.2rem;
+        color: #475569;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .vision-mission {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 40px;
+    }
+
+    .vision-mission-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 30px;
+        background: #f8fafc;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .vision-mission-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .vision-mission-item .icon {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .vision-mission-item .content h3 {
+        font-size: 1.5rem;
+        color: #1e293b;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .vision-mission-item .content p {
+        color: #475569;
+        line-height: 1.7;
+        font-size: 1rem;
+    }
+
+    /* Responsive About */
+    @media (max-width: 768px) {
+        .about-section {
+            padding: 60px 0;
+        }
+
+        .about-section .section-title h2 {
+            font-size: 2rem;
+        }
+
+        .vision-mission {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .vision-mission-item {
+            flex-direction: column;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .vision-mission-item .icon {
+            align-self: center;
+        }
+    }
+
+    /* Contact Section Styles */
+    .contact-section {
+        padding: 80px 0;
+        background: #f8fafc;
+    }
+
+    .contact-section .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    .contact-section .section-title h2 {
+        font-size: 2.5rem;
+        color: #1e293b;
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .contact-section .section-title h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 2px;
+    }
+
+    .contact-section .section-title p {
+        font-size: 1.1rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 25px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .contact-icon {
+        flex-shrink: 0;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .contact-details h3 {
+        font-size: 1.2rem;
+        color: #1e293b;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .contact-details p {
+        color: #475569;
+        line-height: 1.6;
+        font-size: 1rem;
+    }
+
+    .contact-form {
+        background: #fff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h3 {
+        font-size: 1.5rem;
+        color: #1e293b;
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .contact-form .form-group {
+        margin-bottom: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        font-family: inherit;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .contact-form .btn {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    /* Responsive Contact */
+    @media (max-width: 768px) {
+        .contact-section {
+            padding: 60px 0;
+        }
+
+        .contact-section .section-title h2 {
+            font-size: 2rem;
+        }
+
+        .contact-content {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .contact-form {
+            padding: 30px 20px;
+        }
+
+        .contact-item {
+            padding: 20px;
+        }
+    }
+
+
+    /* Admin Styles */
+    .admin-link {
+        background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+        color: white !important;
+        padding: 8px 16px !important;
+        border-radius: 6px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .admin-link:hover {
+        background: linear-gradient(135deg, #b91c1c, #991b1b) !important;
+        transform: translateY(-2px) !important;
+    }
+
+
+    .btn-danger {
+        background: #dc2626;
+    }
+
+    .btn-danger:hover {
+        background: #b91c1c;
+    }
+
+    .btn-success {
+        background: #059669;
+    }
+
+    .btn-success:hover {
+        background: #047857;
+    }
+
+    @media (max-width: 768px) {
+        .admin-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .admin-stats {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .admin-table {
+            overflow-x: auto;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                Puskesmas Modern
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="#profil" class="dropdown-toggle">
+                        Profil <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/visi-misi">Visi Misi</a></li>
+                        <li><a href="/motto-layanan">Motto Layanan</a></li>
+                        <li><a href="/struktur-organisasi">Struktur Organisasi</a></li>
+                        <li><a href="/maklumat-pelayanan">Maklumat Pelayanan</a></li>
+                        <li><a href="/kompensasi-pelayanan">Kompensasi Pelayanan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#pengaduan" class="dropdown-toggle">
+                        Pengaduan <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/jangka-waktu-penyelesaian">Jangka Waktu Penyelesaian Pengaduan</a></li>
+                        <li><a href="/mekanisme-pengaduan">Mekanisme Pengaduan</a></li>
+                        <li><a href="/pengelola-petugas">Pengelola / Petugas Pengaduan</a></li>
+                        <li><a href="/sarana-pengaduan">Sarana Pengaduan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#pelayanan" class="dropdown-toggle">
+                        Pelayanan Publik <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#persyaratan">Persyaratan</a></li>
+                        <li><a href="#alur-mekanisme">Alur Mekanisme Pelayanan</a></li>
+                        <li><a href="#biaya-layanan">Biaya Layanan</a></li>
+                        <li><a href="#survei-kepuasan">Survei Kepuasan Masyarakat</a></li>
+                        <li><a href="#produk-layanan">Produk Layanan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#gallery" class="dropdown-toggle">
+                        Galeri <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/infografis">Infografis</a></li>
+                        <li><a href="/video">Video</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="/login" class="btn btn-primary">Masuk</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Slider Background -->
+        <div class="hero-slider">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            </div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            </div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            </div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba0ef4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            </div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1>Pelayanan Kesehatan Modern & Terpercaya</h1>
+            <p>Sistem manajemen kesehatan terintegrasi yang memudahkan akses pelayanan medis dengan teknologi terdepan untuk kesehatan masyarakat yang lebih baik.</p>
+            <div class="hero-buttons">
+                <a href="#register" class="btn btn-primary">Mulai Sekarang</a>
+                <a href="#login" class="btn btn-outline">Masuk ke Akun</a>
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="hero-arrow prev" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="hero-arrow next" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Dots Navigation -->
+        <div class="hero-nav">
+            <span class="hero-dot active" onclick="currentSlide(1)"></span>
+            <span class="hero-dot" onclick="currentSlide(2)"></span>
+            <span class="hero-dot" onclick="currentSlide(3)"></span>
+            <span class="hero-dot" onclick="currentSlide(4)"></span>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>Pasien Terdaftar</p>
+                </div>
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Dokter Spesialis</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>Layanan Darurat</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99%</h3>
+                    <p>Kepuasan Pasien</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Kami</h2>
+                <p>Teknologi terdepan untuk pelayanan kesehatan yang lebih baik</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Janji Temu Online</h3>
+                    <p>Buat janji temu dengan dokter secara online, pilih waktu yang sesuai dengan jadwal Anda.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-medical"></i>
+                    <h3>Rekam Medis Digital</h3>
+                    <p>Akses riwayat kesehatan Anda dengan mudah dan aman di mana saja.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Manajemen Pasien</h3>
+                    <p>Sistem manajemen pasien yang terintegrasi untuk pelayanan yang lebih baik.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Keamanan Data</h3>
+                    <p>Data kesehatan Anda dilindungi dengan enkripsi tingkat tinggi.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-ambulance"></i>
+                    <h3>Layanan Darurat</h3>
+                    <p>Layanan gawat darurat 24 jam dengan respon cepat dan profesional.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Laboratorium</h3>
+                    <p>Fasilitas laboratorium lengkap untuk pemeriksaan kesehatan yang akurat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>GALERI KAMI</h2>
+                <p>Kami tidak hanya melayani dalam gedung, tapi juga melayani diluar gedung baik promotif dan preventif. ini merupakan galeri foto - foto kegiatan kami dalam melayani luar gedung.</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <!-- Gallery Card 1 -->
+                <div class="gallery-card">
+                    <div class="gallery-card-image">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="BIAS dan Skrining Kesehatan">
+                    </div>
+                </div>
+
+                <!-- Gallery Card 2 -->
+                <div class="gallery-card">
+                    <div class="gallery-card-image">
+                        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="BIAS dan Skrining Kesehatan">
+                    </div>
+                </div>
+
+                <!-- Gallery Card 3 -->
+                <div class="gallery-card">
+                    <div class="gallery-card-image">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lomba Semarak 17 Agustus">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-button">
+                <a href="#gallery" class="gallery-btn">
+                    <i class="fas fa-play"></i>
+                    LIHAT SELENGKAPNYA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>TENTANG KAMI</h2>
+                <p>Mengenal lebih dekat Puskesmas Modern</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-description">
+                    <p>Puskesmas Modern adalah pusat pelayanan kesehatan terdepan yang menyediakan layanan medis berkualitas tinggi dengan teknologi modern dan tenaga medis profesional.</p>
+                </div>
+                
+                <div class="vision-mission">
+                    <div class="vision-mission-item">
+                        <div class="icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="content">
+                            <h3>Visi</h3>
+                            <p class="vision-content">Menjadi pusat pelayanan kesehatan terdepan yang memberikan pelayanan medis berkualitas tinggi untuk masyarakat.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="vision-mission-item">
+                        <div class="icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="content">
+                            <h3>Misi</h3>
+                            <p class="mission-content">1. Menyediakan pelayanan medis berkualitas tinggi<br>2. Menggunakan teknologi modern dalam pelayanan<br>3. Memberikan pelayanan yang ramah dan profesional<br>4. Meningkatkan kesehatan masyarakat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>HUBUNGI KAMI</h2>
+                <p>Kami siap melayani kebutuhan kesehatan Anda</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Alamat</h3>
+                            <p class="contact-address">Jl. Kesehatan No. 123, Jakarta Pusat 10110</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telepon</h3>
+                            <p class="contact-phone">(021) 1234-5678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p class="contact-email">info@puskesmasmodern.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Jam Operasional</h3>
+                            <p class="contact-hours">Senin - Jumat: 08:00 - 17:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Kirim Pesan</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Nomor Telepon" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Pesan Anda" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Puskesmas Modern</h3>
+                    <p>Pelayanan kesehatan modern dengan teknologi terdepan untuk kesehatan masyarakat yang lebih baik.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Janji Temu Online</a></li>
+                        <li><a href="#">Rekam Medis Digital</a></li>
+                        <li><a href="#">Konsultasi Dokter</a></li>
+                        <li><a href="#">Layanan Darurat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Dokter Spesialis</a></li>
+                        <li><a href="#">Jadwal Praktik</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p>Jl. Kesehatan No. 123<br>Jakarta Selatan 12345</p>
+                    <p>📞 (021) 1234-5678</p>
+                    <p>📧 info@puskesmas.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Puskesmas Modern. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hero Slider
+        let slideIndex = 1;
+        let slideInterval;
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.hero-dot');
+            
+            if (n > slides.length) slideIndex = 1;
+            if (n < 1) slideIndex = slides.length;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[slideIndex - 1].classList.add('active');
+            dots[slideIndex - 1].classList.add('active');
+        }
+
+        function changeSlide(n) {
+            showSlide(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlide(slideIndex = n);
+        }
+
+        function autoSlide() {
+            changeSlide(1);
+        }
+
+        // Start auto slide
+        function startAutoSlide() {
+            slideInterval = setInterval(autoSlide, 5000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        // Initialize slider
+        document.addEventListener('DOMContentLoaded', function() {
+            showSlide(slideIndex);
+            startAutoSlide();
+            
+            // Pause on hover
+            const hero = document.querySelector('.hero');
+            hero.addEventListener('mouseenter', stopAutoSlide);
+            hero.addEventListener('mouseleave', startAutoSlide);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#fff';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
+
+        document.querySelector('.hero').addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+        });
+
+        document.querySelector('.hero').addEventListener('touchend', function(e) {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const threshold = 50;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    changeSlide(1); // Swipe left - next slide
+                } else {
+                    changeSlide(-1); // Swipe right - previous slide
+                }
+            }
+        }
+
+        // Admin Functions
+        async function loadDashboard() {
+            try {
+                const response = await fetch('/api/admin/dashboard');
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('totalPatients').textContent = data.data.totalPatients.toLocaleString();
+                    document.getElementById('totalAppointments').textContent = data.data.totalAppointments;
+                    document.getElementById('totalDoctors').textContent = data.data.totalDoctors;
+                    document.getElementById('todayAppointments').textContent = data.data.todayAppointments;
+                }
+            } catch (error) {
+                console.error('Error loading dashboard:', error);
+            }
+        }
+
+        async function loadPatients() {
+            try {
+                const response = await fetch('/api/admin/patients');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const content = `
+                        <div class="admin-table">
+                            <h3><i class="fas fa-users"></i> Data Pasien</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>Telepon</th>
+                                        <th>Kunjungan Terakhir</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.data.map(patient => `
+                                        <tr>
+                                            <td>${patient.id}</td>
+                                            <td>${patient.name}</td>
+                                            <td>${patient.email}</td>
+                                            <td>${patient.phone}</td>
+                                            <td>${patient.lastVisit}</td>
+                                            <td>
+                                                <button class="btn-admin btn-success" onclick="editPatient(${patient.id})">Edit</button>
+                                                <button class="btn-admin btn-danger" onclick="deletePatient(${patient.id})">Hapus</button>
+                                            </td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                    document.getElementById('adminContent').innerHTML = content;
+                }
+            } catch (error) {
+                console.error('Error loading patients:', error);
+            }
+        }
+
+        async function loadAppointments() {
+            try {
+                const response = await fetch('/api/admin/appointments');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const content = `
+                        <div class="admin-table">
+                            <h3><i class="fas fa-calendar-alt"></i> Data Janji Temu</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Pasien</th>
+                                        <th>Dokter</th>
+                                        <th>Tanggal</th>
+                                        <th>Waktu</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.data.map(appointment => `
+                                        <tr>
+                                            <td>${appointment.id}</td>
+                                            <td>${appointment.patient}</td>
+                                            <td>${appointment.doctor}</td>
+                                            <td>${appointment.date}</td>
+                                            <td>${appointment.time}</td>
+                                            <td><span class="status-${appointment.status}">${appointment.status}</span></td>
+                                            <td>
+                                                <button class="btn-admin btn-success" onclick="updateAppointment(${appointment.id}, 'confirmed')">Konfirmasi</button>
+                                                <button class="btn-admin btn-danger" onclick="updateAppointment(${appointment.id}, 'cancelled')">Batal</button>
+                                            </td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                    document.getElementById('adminContent').innerHTML = content;
+                }
+            } catch (error) {
+                console.error('Error loading appointments:', error);
+            }
+        }
+
+        async function loadDoctors() {
+            try {
+                const response = await fetch('/api/admin/doctors');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const content = `
+                        <div class="admin-table">
+                            <h3><i class="fas fa-user-md"></i> Data Dokter</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nama</th>
+                                        <th>Spesialisasi</th>
+                                        <th>Pengalaman</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${data.data.map(doctor => `
+                                        <tr>
+                                            <td>${doctor.id}</td>
+                                            <td>${doctor.name}</td>
+                                            <td>${doctor.specialization}</td>
+                                            <td>${doctor.experience}</td>
+                                            <td><span class="status-${doctor.status}">${doctor.status}</span></td>
+                                            <td>
+                                                <button class="btn-admin btn-success" onclick="editDoctor(${doctor.id})">Edit</button>
+                                                <button class="btn-admin btn-danger" onclick="deleteDoctor(${doctor.id})">Hapus</button>
+                                            </td>
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+                    document.getElementById('adminContent').innerHTML = content;
+                }
+            } catch (error) {
+                console.error('Error loading doctors:', error);
+            }
+        }
+
+        async function loadStats() {
+            try {
+                const response = await fetch('/api/admin/stats');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const content = `
+                        <div class="admin-table">
+                            <h3><i class="fas fa-chart-bar"></i> Statistik Sistem</h3>
+                            <div class="admin-stats">
+                                <div class="stat-card">
+                                    <h4>${data.data.totalRevenue.toLocaleString()}</h4>
+                                    <p>Total Pendapatan</p>
+                                </div>
+                                <div class="stat-card">
+                                    <h4>${data.data.monthlyGrowth}%</h4>
+                                    <p>Pertumbuhan Bulanan</p>
+                                </div>
+                            </div>
+                            <p><strong>Data Grafik:</strong></p>
+                            <p>• Pasien: ${data.data.chartData.patients.join(', ')}</p>
+                            <p>• Janji Temu: ${data.data.chartData.appointments.join(', ')}</p>
+                            <p>• Pendapatan: ${data.data.chartData.revenue.map(r => r.toLocaleString()).join(', ')}</p>
+                        </div>
+                    `;
+                    document.getElementById('adminContent').innerHTML = content;
+                }
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        // Admin action functions
+        function editPatient(id) {
+            alert(`Edit pasien dengan ID: ${id}`);
+        }
+
+        function deletePatient(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus pasien ini?')) {
+                alert(`Pasien dengan ID ${id} telah dihapus`);
+                loadPatients();
+            }
+        }
+
+        function updateAppointment(id, status) {
+            alert(`Janji temu ${id} diubah menjadi: ${status}`);
+            loadAppointments();
+        }
+
+        function editDoctor(id) {
+            alert(`Edit dokter dengan ID: ${id}`);
+        }
+
+        function deleteDoctor(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus dokter ini?')) {
+                alert(`Dokter dengan ID ${id} telah dihapus`);
+                loadDoctors();
+            }
+        }
+
+        // Load dashboard on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDashboard();
+        });
+    </script>
+
+    <script>
+    // Load hero settings, gallery, about, contact, and website settings from localStorage on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        loadHeroSettings();
+        loadGallerySettings();
+            loadAboutSettings();
+            loadContactSettings();
+            loadWebsiteSettings();
+    });
+
+        function loadHeroSettings() {
+            const savedSettings = localStorage.getItem('heroSettings');
+            if (savedSettings) {
+                try {
+                    const data = JSON.parse(savedSettings);
+                    
+                    // Update hero content
+                    const heroContent = document.querySelector('.hero-content h1');
+                    const heroDesc = document.querySelector('.hero-content p');
+                    
+                    if (heroContent && data.title) {
+                        heroContent.textContent = data.title;
+                    }
+                    if (heroDesc && data.description) {
+                        heroDesc.textContent = data.description;
+                    }
+                    
+                    // Update hero slides
+                    if (data.slides && data.slides.length > 0) {
+                        const slides = document.querySelectorAll('.hero-slide');
+                        slides.forEach((slide, index) => {
+                            if (data.slides[index]) {
+                                slide.style.backgroundImage = `url('${data.slides[index]}')`;
+                            }
+                        });
+                    }
+                } catch (error) {
+                    console.log('Error loading hero settings:', error);
+                }
+            }
+        }
+
+    // Load gallery settings from localStorage
+    function loadGallerySettings() {
+        const savedGallery = localStorage.getItem('gallerySettings');
+        if (savedGallery) {
+            try {
+                const data = JSON.parse(savedGallery);
+                
+                // Update gallery images
+                if (data.images && data.images.length > 0) {
+                    const galleryCards = document.querySelectorAll('.gallery-card');
+                    galleryCards.forEach((card, index) => {
+                        if (data.images[index]) {
+                            const img = card.querySelector('img');
+                            if (img) {
+                                img.src = data.images[index];
+                            }
+                        }
+                    });
+                }
+            } catch (error) {
+                console.log('Error loading gallery settings:', error);
+            }
+        }
+    }
+
+    // Load about settings from localStorage
+    function loadAboutSettings() {
+        const savedSettings = localStorage.getItem('aboutSettings');
+        if (savedSettings) {
+            try {
+                const data = JSON.parse(savedSettings);
+                
+                // Update about section content
+                const aboutTitle = document.querySelector('.about-section h2');
+                const aboutDescription = document.querySelector('.about-description');
+                const aboutVision = document.querySelector('.vision-content');
+                const aboutMission = document.querySelector('.mission-content');
+                
+                if (aboutTitle && data.title) aboutTitle.textContent = data.title;
+                if (aboutDescription && data.description) aboutDescription.textContent = data.description;
+                if (aboutVision && data.vision) aboutVision.textContent = data.vision;
+                if (aboutMission && data.mission) aboutMission.textContent = data.mission;
+            } catch (error) {
+                console.log('Error loading about settings:', error);
+            }
+        }
+    }
+
+    // Load contact settings from localStorage
+    function loadContactSettings() {
+        const savedSettings = localStorage.getItem('contactSettings');
+        if (savedSettings) {
+            try {
+                const data = JSON.parse(savedSettings);
+                
+                // Update contact section content
+                const contactAddress = document.querySelector('.contact-address');
+                const contactPhone = document.querySelector('.contact-phone');
+                const contactEmail = document.querySelector('.contact-email');
+                const contactHours = document.querySelector('.contact-hours');
+                
+                if (contactAddress && data.address) contactAddress.textContent = data.address;
+                if (contactPhone && data.phone) contactPhone.textContent = data.phone;
+                if (contactEmail && data.email) contactEmail.textContent = data.email;
+                if (contactHours && data.hours) contactHours.textContent = data.hours;
+            } catch (error) {
+                console.log('Error loading contact settings:', error);
+            }
+        }
+    }
+
+    // Load website settings from localStorage
+    function loadWebsiteSettings() {
+        const savedSettings = localStorage.getItem('websiteSettings');
+        if (savedSettings) {
+            try {
+                const data = JSON.parse(savedSettings);
+                
+                // Update website title
+                if (data.name) {
+                    document.title = data.name;
+                }
+                
+                // Update logo
+                if (data.logo) {
+                    const logo = document.querySelector('.logo');
+                    if (logo) {
+                        // Create image element and test if it loads
+                        const img = new Image();
+                        img.onload = function() {
+                            logo.innerHTML = `<img src="${data.logo}" alt="Logo" style="height: 40px; object-fit: contain;">`;
+                        };
+                        img.onerror = function() {
+                            // If image fails to load, keep the original logo
+                            console.log('Logo image failed to load, keeping original logo');
+                        };
+                        img.src = data.logo;
+                    }
+                }
+                
+                // Update favicon
+                if (data.favicon) {
+                    let favicon = document.querySelector('link[rel="icon"]');
+                    if (!favicon) {
+                        favicon = document.createElement('link');
+                        favicon.rel = 'icon';
+                        document.head.appendChild(favicon);
+                    }
+                    favicon.href = data.favicon;
+                }
+                
+                // Update meta description
+                if (data.description) {
+                    let metaDesc = document.querySelector('meta[name="description"]');
+                    if (!metaDesc) {
+                        metaDesc = document.createElement('meta');
+                        metaDesc.name = 'description';
+                        document.head.appendChild(metaDesc);
+                    }
+                    metaDesc.content = data.description;
+                }
+            } catch (error) {
+                console.log('Error loading website settings:', error);
+            }
+        }
+    }
+
+    // Load gallery data from localStorage
+
+    // Listen for storage changes (when admin updates settings)
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'heroSettings') {
+            loadHeroSettings();
+        }
+        if (e.key === 'gallerySettings') {
+            loadGallerySettings();
+        }
+        if (e.key === 'aboutSettings') {
+            loadAboutSettings();
+        }
+        if (e.key === 'contactSettings') {
+            loadContactSettings();
+        }
+        if (e.key === 'websiteSettings') {
+            loadWebsiteSettings();
+        }
+    });
+    </script>
+</body>
+</html>

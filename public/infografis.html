@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis - Puskesmas Modern</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #2563eb;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-toggle i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-toggle i {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+            pointer-events: none;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f8fafc;
+            color: #2563eb;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: white;
+            padding: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: #10b981;
+            background: #10b981;
+            color: white;
+        }
+
+        /* Infografis Grid */
+        .infografis-section {
+            padding: 60px 0;
+        }
+
+        .infografis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .infografis-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .infografis-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .infografis-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .infografis-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .infografis-card:hover .infografis-image img {
+            transform: scale(1.05);
+        }
+
+        .infografis-category {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(16, 185, 129, 0.9);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .infografis-content {
+            padding: 25px;
+        }
+
+        .infografis-content h3 {
+            font-size: 1.3rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .infografis-content p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .infografis-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .infografis-date {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .view-infografis {
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .view-infografis:hover {
+            color: #059669;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: #64748b;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #cbd5e1;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #475569;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #10b981;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: #10b981;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: #f8fafc;
+                margin-top: 10px;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .filter-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .infografis-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .infografis-meta {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                Puskesmas Modern
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Beranda</a></li>
+                <li class="dropdown">
+                    <a href="/#profil" class="dropdown-toggle">
+                        Profil <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/visi-misi">Visi Misi</a></li>
+                        <li><a href="/motto-layanan">Motto Layanan</a></li>
+                        <li><a href="/struktur-organisasi">Struktur Organisasi</a></li>
+                        <li><a href="/maklumat-pelayanan">Maklumat Pelayanan</a></li>
+                        <li><a href="/kompensasi-pelayanan">Kompensasi Pelayanan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/#pengaduan" class="dropdown-toggle">
+                        Pengaduan <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/jangka-waktu-penyelesaian">Jangka Waktu Penyelesaian Pengaduan</a></li>
+                        <li><a href="/mekanisme-pengaduan">Mekanisme Pengaduan</a></li>
+                        <li><a href="/pengelola-petugas">Pengelola / Petugas Pengaduan</a></li>
+                        <li><a href="/sarana-pengaduan">Sarana Pengaduan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="/#pelayanan" class="dropdown-toggle">
+                        Pelayanan Publik <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/#persyaratan">Persyaratan</a></li>
+                        <li><a href="/#alur-mekanisme">Alur Mekanisme Pelayanan</a></li>
+                        <li><a href="/#biaya-layanan">Biaya Layanan</a></li>
+                        <li><a href="/#survei-kepuasan">Survei Kepuasan Masyarakat</a></li>
+                        <li><a href="/#produk-layanan">Produk Layanan</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#gallery" class="dropdown-toggle">
+                        Galeri <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/infografis">Infografis</a></li>
+                        <li><a href="/video">Video</a></li>
+                        <li><a href="/berita">Berita</a></li>
+                    </ul>
+                </li>
+                <li><a href="/#about">Tentang</a></li>
+                <li><a href="/#contact">Kontak</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="/login" class="btn btn-primary">Masuk</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1>Infografis Kesehatan</h1>
+                <p>Visualisasi data dan informasi kesehatan yang mudah dipahami untuk meningkatkan kesadaran masyarakat</p>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-container">
+                    <button class="filter-btn active" onclick="filterInfografis('all')">Semua</button>
+                    <button class="filter-btn" onclick="filterInfografis('Kesehatan')">Kesehatan</button>
+                    <button class="filter-btn" onclick="filterInfografis('Pencegahan')">Pencegahan</button>
+                    <button class="filter-btn" onclick="filterInfografis('Edukasi')">Edukasi</button>
+                    <button class="filter-btn" onclick="filterInfografis('Statistik')">Statistik</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infografis Section -->
+        <section class="infografis-section">
+            <div class="container">
+                <div class="infografis-grid" id="infografisGrid">
+                    <!-- Infografis items will be loaded here -->
+                </div>
+                
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Belum Ada Infografis</h3>
+                    <p>Belum ada infografis yang tersedia. Silakan kembali lagi nanti.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Puskesmas Modern</h3>
+                    <p>Pelayanan kesehatan modern dengan teknologi terdepan untuk kesehatan masyarakat yang lebih baik.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#">Janji Temu Online</a></li>
+                        <li><a href="#">Rekam Medis Digital</a></li>
+                        <li><a href="#">Konsultasi Dokter</a></li>
+                        <li><a href="#">Layanan Darurat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Dokter Spesialis</a></li>
+                        <li><a href="#">Jadwal Praktik</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak</h3>
+                    <p>Jl. Kesehatan No. 123<br>Jakarta Selatan 12345</p>
+                    <p>📞 (021) 1234-5678</p>
+                    <p>📧 info@puskesmas.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Puskesmas Modern. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load infografis data from localStorage
+        function loadInfografisData() {
+            const infografisData = JSON.parse(localStorage.getItem('infografisData') || '[]');
+            const infografisGrid = document.getElementById('infografisGrid');
+            const emptyState = document.getElementById('emptyState');
+            
+            if (infografisData.length === 0) {
+                infografisGrid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            infografisGrid.style.display = 'grid';
+            emptyState.style.display = 'none';
+            
+            infografisGrid.innerHTML = infografisData.map(item => `
+                <div class="infografis-card" data-category="${item.category}">
+                    <div class="infografis-image">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div class="infografis-category">${item.category}</div>
+                    </div>
+                    <div class="infografis-content">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                        <div class="infografis-meta">
+                            <div class="infografis-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>${new Date(item.timestamp).toLocaleDateString('id-ID')}</span>
+                            </div>
+                            <a href="#" class="view-infografis">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter infografis by category
+        function filterInfografis(category) {
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const cards = document.querySelectorAll('.infografis-card');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Listen for storage changes
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'infografisData') {
+                loadInfografisData();
+            }
+        });
+
+        // Load data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadInfografisData();
+        });
+    </script>
+</body>
+</html>
