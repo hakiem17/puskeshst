@@ -1,6 +1,17 @@
-# Puskesmas Modern Website
+# Puskesmas Modern Website 🏥
 
 A modern, responsive website for Puskesmas (Community Health Center) with comprehensive admin dashboard for content management.
+
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/hakiem17/puskeshst)
+[![Repository](https://img.shields.io/badge/Repository-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://github.com/hakiem17/puskeshst)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+
+## 🎯 Tentang Aplikasi
+
+Puskesmas Modern Website adalah solusi digital lengkap untuk Puskesmas yang menyediakan website modern dan responsive dengan sistem admin dashboard yang komprehensif untuk manajemen konten. Aplikasi ini dirancang khusus untuk memenuhi kebutuhan digitalisasi layanan kesehatan masyarakat.
 
 ## 🚀 Features
 
