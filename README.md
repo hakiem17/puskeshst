@@ -1,219 +1,217 @@
-# Puskesmas Modern Website 🏥
+# 🏥 Puskesmas Modern - Sistem Manajemen Puskesmas
 
-A modern, responsive website for Puskesmas (Community Health Center) with comprehensive admin dashboard for content management.
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/hakiem17/puskeshst)
-[![Repository](https://img.shields.io/badge/Repository-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://github.com/hakiem17/puskeshst)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Font Awesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=for-the-badge&logo=fontawesome&logoColor=white)](https://fontawesome.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/hakiem17/puskesjshst)
 
-## 🎯 Tentang Aplikasi
+## 📋 Deskripsi
 
-Puskesmas Modern Website adalah solusi digital lengkap untuk Puskesmas yang menyediakan website modern dan responsive dengan sistem admin dashboard yang komprehensif untuk manajemen konten. Aplikasi ini dirancang khusus untuk memenuhi kebutuhan digitalisasi layanan kesehatan masyarakat.
+**Puskesmas Modern** adalah sistem manajemen puskesmas yang komprehensif dengan admin panel modern dan landing page responsif. Sistem ini dirancang untuk memudahkan pengelolaan data puskesmas dan memberikan informasi yang akurat kepada masyarakat.
 
-## 🚀 Features
+## ✨ Fitur Utama
 
-### Main Website
-- **Responsive Design**: Modern UI/UX that works on all devices
-- **Multiple Pages**: Home, Gallery, Profile, Pengaduan, Pelayanan Publik
-- **Dynamic Content**: Real-time content updates from admin panel
-- **Image Management**: Upload and manage images for galleries
-- **Local Storage**: Client-side data persistence
+### 🔧 Admin Panel
+- **Dashboard Modern** dengan dark/light mode
+- **Manajemen Konten** yang mudah digunakan
+- **Upload Gambar** dengan preview
+- **Auto-save** ke localStorage
+- **Responsive Design** untuk semua device
+- **Navigation** dengan submenu yang intuitif
 
-### Admin Dashboard
-- **Content Management**: Full CRUD operations for all content
-- **Hero Section**: Manage homepage slides and content
-- **Gallery Management**: Organize Infografis, Video, and Berita
-- **About & Contact**: Manage company information
-- **Website Settings**: Logo, favicon, and meta settings
-- **Pengaduan Content**: Manage complaint resolution content
+### 🌐 Landing Page
+- **Hero Carousel** dengan gambar bergerak
+- **Responsive Design** untuk semua device
+- **Konten Dinamis** dari admin panel
+- **Contact Form** yang fungsional
+- **Smooth Scrolling** navigation
+- **Modern UI/UX** design
 
-### Technical Features
-- **Express.js Backend**: RESTful API endpoints with middleware
-- **MongoDB Integration**: Database connectivity with Mongoose ODM
-- **JWT Authentication**: Secure admin login system
-- **Password Security**: bcryptjs hashing for secure passwords
-- **Input Validation**: express-validator for form validation
-- **File Upload**: Image handling with base64 encoding
-- **Real-time Updates**: Live content synchronization via localStorage
-- **Responsive Design**: Mobile-first CSS approach
-- **CORS Support**: Cross-origin resource sharing enabled
+### 📱 Responsive Design
+- Mobile-first approach
+- Touch-friendly interface
+- Optimized untuk semua screen size
+- Fast loading performance
 
-## 📁 Project Structure
+## 🚀 Teknologi yang Digunakan
+
+| Teknologi | Deskripsi | Badge |
+|-----------|-----------|-------|
+| **HTML5** | Struktur semantic dan modern | ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) |
+| **CSS3** | Styling modern dengan variables | ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white) |
+| **JavaScript ES6+** | Interaktivitas dan DOM manipulation | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) |
+| **Font Awesome** | Icon library yang lengkap | ![Font Awesome](https://img.shields.io/badge/Font_Awesome-339AF0?style=flat-square&logo=fontawesome&logoColor=white) |
+| **LocalStorage** | Data persistence | ![LocalStorage](https://img.shields.io/badge/LocalStorage-FF6B6B?style=flat-square&logo=localstorage&logoColor=white) |
+
+## 📁 Struktur Project
 
 ```
-puskes/
-├── public/                 # Frontend files
-│   ├── index.html         # Main website
-│   ├── admin.html         # Admin dashboard
-│   ├── login.html         # Login page
-│   ├── berita.html        # News page
-│   ├── infografis.html    # Infographics page
-│   ├── video.html         # Video page
-│   ├── visi-misi.html     # Vision & Mission
-│   ├── struktur-organisasi.html
-│   ├── maklumat-pelayanan.html
-│   ├── kompensasi-pelayanan.html
-│   ├── jangka-waktu-penyelesaian.html
-│   ├── mekanisme-pengaduan.html
-│   ├── pengelola-petugas.html
-│   └── sarana-pengaduan.html
-├── routes/
-│   └── admin.js           # API routes
-├── server.js              # Main server file
-├── package.json           # Dependencies
-└── README.md              # This file
+puskesjshst/
+├── 📄 index.html                 # Landing page utama
+├── 📄 dashboard-admin.html       # Admin panel
+├── 🎨 styles.css                # Styling admin panel
+├── 🎨 landing-styles.css         # Styling landing page
+├── ⚡ script.js                 # JavaScript admin panel
+├── ⚡ landing-script.js          # JavaScript landing page
+├── 📄 test-functions.html        # Testing functions
+├── 📄 README.md                 # Dokumentasi project
+└── 📄 .gitignore               # Git ignore file
 ```
 
-## 🛠️ Tech Stack
+## 🛠️ Instalasi & Penggunaan
 
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB (with Mongoose ODM)
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Authentication**: JWT (JSON Web Tokens)
-- **Security**: bcryptjs for password hashing
-- **Validation**: express-validator
-- **Development**: nodemon for auto-restart
+### Prerequisites
+- Web browser modern (Chrome, Firefox, Safari, Edge)
+- Text editor (VS Code, Sublime Text, dll)
+- Git (untuk version control)
 
-## 🚀 Installation
+### Setup Project
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/hakiem17/puskeshst.git
-   cd puskeshst
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Environment Setup** (Optional)
-   ```bash
-   # Create .env file for MongoDB connection
-   echo "MONGODB_URI=mongodb://localhost:27017/puskesmas" > .env
-   ```
-
-4. **Start the server**
-   ```bash
-   npm start
-   # or for development
-   npm run dev
-   ```
-
-5. **Access the application**
-   - Main Website: `http://localhost:3001`
-   - Admin Dashboard: `http://localhost:3001/admin`
-   - Login: `http://localhost:3001/login`
-
-## 📦 Dependencies
-
-### Production Dependencies
-- **express**: ^4.18.2 - Web framework for Node.js
-- **mongoose**: ^8.0.3 - MongoDB object modeling tool
-- **cors**: ^2.8.5 - Cross-origin resource sharing
-- **bcryptjs**: ^2.4.3 - Password hashing library
-- **jsonwebtoken**: ^9.0.2 - JWT implementation
-- **dotenv**: ^16.3.1 - Environment variable loader
-- **express-validator**: ^7.0.1 - Input validation middleware
-
-### Development Dependencies
-- **nodemon**: ^3.0.2 - Auto-restart development server
-
-## 🔧 Configuration
-
-### Environment Variables
-- `PORT`: Server port (default: 3001)
-- `MONGODB_URI`: MongoDB connection string (optional)
-- `JWT_SECRET`: Secret key for JWT tokens (optional)
-
-### Default Login Credentials
-- **Username**: `admin`
-- **Password**: `admin123`
-
-## 📱 Pages Overview
-
-### Main Website
-- **Home**: Hero section, services, about, contact
-- **Gallery**: Infografis, Video, Berita with filtering
-- **Profile**: Vision & Mission, Organization Structure, Service Information
-- **Pengaduan**: Complaint resolution information
-- **Pelayanan Publik**: Public service information
-
-### Admin Dashboard
-- **Dashboard**: Overview and statistics
-- **Hero Section**: Manage homepage slides
-- **Services**: Manage service offerings
-- **Gallery**: Manage Infografis, Video, Berita
-- **About**: Manage about section content
-- **Contact**: Manage contact information
-- **Settings**: Website configuration
-- **Konten Pengaduan**: Manage complaint content
-
-## 🎨 Design Features
-
-- **Modern UI**: Clean, professional design
-- **Responsive**: Mobile-first approach
-- **Interactive**: Smooth animations and transitions
-- **Accessible**: User-friendly navigation
-- **Fast Loading**: Optimized performance
-
-## 🔒 Security
-
-- **Admin Authentication**: Secure login system
-- **Input Validation**: Form validation and sanitization
-- **File Upload Security**: Image type and size validation
-- **XSS Protection**: Content sanitization
-
-## 🚀 Deployment
-
-### Local Development
+1. **Clone Repository**
 ```bash
-npm start
+git clone https://github.com/hakiem17/puskesjshst.git
+cd puskesjshst
 ```
 
-### Production Deployment
-1. Set up environment variables
-2. Configure MongoDB connection (optional)
-3. Deploy to your preferred hosting platform
-4. Set up SSL certificate for HTTPS
+2. **Buka di Browser**
+```bash
+# Buka landing page
+open index.html
 
-## 📝 API Endpoints
+# Buka admin panel
+open dashboard-admin.html
+```
 
-### Admin Routes
-- `POST /api/admin/hero` - Save hero section
-- `GET /api/admin/hero` - Get hero section
-- `POST /api/admin/about` - Save about section
-- `GET /api/admin/about` - Get about section
-- `POST /api/admin/contact` - Save contact section
-- `GET /api/admin/contact` - Get contact section
-- `POST /api/admin/website` - Save website settings
-- `GET /api/admin/website` - Get website settings
+3. **Atau gunakan Live Server (VS Code)**
+```bash
+# Install Live Server extension
+# Klik kanan pada index.html > "Open with Live Server"
+```
 
-## 🤝 Contributing
+## 📖 Cara Penggunaan
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+### 🔐 Admin Panel
+1. Buka `dashboard-admin.html`
+2. Login dengan kredensial admin
+3. Kelola konten melalui menu sidebar:
+   - **Profil**: Visi & Misi, Struktur Organisasi, dll
+   - **Pengaduan**: Mekanisme pengaduan, Jangka waktu
+   - **Layanan**: Persyaratan, Alur mekanisme, Biaya
+   - **Gallery**: Berita, Infografis
+4. Upload gambar dan isi deskripsi
+5. Klik **Simpan** untuk menyimpan perubahan
 
-## 📄 License
+### 🌐 Landing Page
+1. Buka `index.html`
+2. Landing page akan menampilkan konten dari admin panel
+3. Navigasi menggunakan menu header
+4. Hero carousel akan menampilkan gambar yang diupload admin
+5. Semua konten akan terupdate otomatis
 
-This project is licensed under the MIT License.
+## 🎯 Fitur Detail
 
-## 👥 Author
+### Admin Panel Features
+- ✅ **Dark/Light Mode** toggle
+- ✅ **Responsive Navigation** dengan submenu
+- ✅ **Image Upload** dengan preview
+- ✅ **Auto-save** ke localStorage
+- ✅ **Form Validation**
+- ✅ **Notification System**
+- ✅ **Mobile-friendly** interface
+
+### Landing Page Features
+- ✅ **Hero Carousel** otomatis
+- ✅ **Smooth Scrolling**
+- ✅ **Animated Statistics**
+- ✅ **Contact Form**
+- ✅ **Responsive Gallery**
+- ✅ **SEO Optimized**
+
+## 🔧 Konfigurasi
+
+### Mengubah Warna Theme
+Edit file `styles.css`:
+```css
+:root {
+    --primary-color: #2c5aa0;    /* Warna utama */
+    --secondary-color: #4a90e2;   /* Warna sekunder */
+    --accent-color: #ff6b6b;      /* Warna aksen */
+}
+```
+
+### Menambah Menu Baru
+Edit `dashboard-admin.html`:
+```html
+<li class="nav-item">
+    <a href="#" class="nav-link" data-section="menu-baru">
+        <i class="fas fa-icon"></i>
+        <span>Menu Baru</span>
+    </a>
+</li>
+```
+
+## 📱 Screenshots
+
+### Admin Panel
+![Admin Panel](https://via.placeholder.com/800x400/2c5aa0/ffffff?text=Admin+Panel+Dashboard)
+
+### Landing Page
+![Landing Page](https://via.placeholder.com/800x400/4a90e2/ffffff?text=Landing+Page+Hero)
+
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima! Untuk berkontribusi:
+
+1. Fork repository ini
+2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
+
+## 📝 Changelog
+
+### v1.0.0 (2024-01-01)
+- ✅ Initial release
+- ✅ Admin panel dengan CRUD operations
+- ✅ Landing page responsif
+- ✅ Dark/Light mode
+- ✅ Image upload functionality
+- ✅ LocalStorage integration
+
+## 🐛 Bug Reports
+
+Jika menemukan bug, silakan buat issue dengan detail:
+- Browser yang digunakan
+- Langkah reproduksi
+- Screenshot jika ada
+- Expected vs Actual behavior
+
+## 📄 Lisensi
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## 👨‍💻 Author
 
 **Ahmad Hakim**
 - GitHub: [@hakiem17](https://github.com/hakiem17)
-- Repository: [puskeshst](https://github.com/hakiem17/puskeshst)
+- Email: hakiem17@example.com
 
-## 📞 Support
+## 🙏 Acknowledgments
 
-For support and questions, please open an issue on GitHub.
+- [Font Awesome](https://fontawesome.com/) untuk icon library
+- [Unsplash](https://unsplash.com/) untuk sample images
+- [GitHub](https://github.com/) untuk hosting repository
 
 ---
 
-**Puskesmas Modern** - Modern Healthcare Website Solution
+<div align="center">
+
+### ⭐ Star this repository jika project ini membantu Anda!
+
+[![GitHub stars](https://img.shields.io/github/stars/hakiem17/puskesjshst?style=social)](https://github.com/hakiem17/puskesjshst/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/hakiem17/puskesjshst?style=social)](https://github.com/hakiem17/puskesjshst/network/members)
+
+**Dibuat dengan ❤️ untuk kemajuan teknologi kesehatan Indonesia**
+
+</div>

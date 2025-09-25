@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
+    <title>Puskesmas Modern - Layanan Kesehatan Terbaik</title>
+    <meta name="title" content="Puskesmas Modern - Layanan Kesehatan Terbaik">
+    <meta name="description" content="Sistem manajemen puskesmas modern dengan admin panel dan landing page responsif. Solusi lengkap untuk pengelolaan puskesmas dengan teknologi terdepan.">
+    <meta name="keywords" content="puskesmas, healthcare, admin panel, landing page, responsive, javascript, html5, css3, kesehatan, rumah sakit, klinik">
+    <meta name="author" content="Ahmad Hakim">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Indonesian">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hakiem17.github.io/puskesjshst/">
+    <meta property="og:title" content="Puskesmas Modern - Layanan Kesehatan Terbaik">
+    <meta property="og:description" content="Sistem manajemen puskesmas modern dengan admin panel dan landing page responsif. Solusi lengkap untuk pengelolaan puskesmas dengan teknologi terdepan.">
+    <meta property="og:image" content="https://hakiem17.github.io/puskesjshst/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="Puskesmas Modern">
+    <meta property="og:locale" content="id_ID">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hakiem17.github.io/puskesjshst/">
+    <meta property="twitter:title" content="Puskesmas Modern - Layanan Kesehatan Terbaik">
+    <meta property="twitter:description" content="Sistem manajemen puskesmas modern dengan admin panel dan landing page responsif. Solusi lengkap untuk pengelolaan puskesmas dengan teknologi terdepan.">
+    <meta property="twitter:image" content="https://hakiem17.github.io/puskesjshst/assets/images/og-image.jpg">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#2c5aa0">
+    <meta name="msapplication-TileColor" content="#2c5aa0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Puskesmas Modern">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="landing-styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-hospital"></i>
+            </div>
+            <div class="loading-text">Puskesmas Modern</div>
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-hospital"></i>
+                    <span>Puskesmas Modern</span>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link active">Beranda</a>
+                    <a href="#about" class="nav-link">Tentang</a>
+                    <a href="#services" class="nav-link">Layanan</a>
+                    <a href="#gallery" class="nav-link">Galeri</a>
+                    <a href="#contact" class="nav-link">Kontak</a>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Carousel -->
+    <section id="home" class="hero">
+        <div class="hero-carousel" id="hero-carousel">
+            <!-- Carousel items will be dynamically loaded from admin -->
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title" id="hero-title">Selamat Datang di Puskesmas Modern</h1>
+            <p class="hero-subtitle" id="hero-subtitle">Layanan kesehatan terbaik untuk keluarga Anda</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">Lihat Layanan</a>
+                <a href="#contact" class="btn btn-secondary">Hubungi Kami</a>
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-btn prev" id="prev-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" id="next-btn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="carousel-indicators" id="carousel-indicators">
+            <!-- Indicators will be dynamically generated -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tentang Puskesmas Modern</h2>
+                <p class="section-subtitle">Komitmen kami untuk memberikan pelayanan kesehatan terbaik</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="vision-mission" id="vision-mission-content">
+                        <!-- Content will be loaded from admin -->
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number" data-target="15000">0</h3>
+                            <p class="stat-label">Pasien Terlayani</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number" data-target="25">0</h3>
+                            <p class="stat-label">Tenaga Medis</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number" data-target="24">0</h3>
+                            <p class="stat-label">Jam Layanan</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 class="stat-number" data-target="98">0</h3>
+                            <p class="stat-label">% Kepuasan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Layanan Kami</h2>
+                <p class="section-subtitle">Berbagai layanan kesehatan yang kami sediakan</p>
+            </div>
+            <div class="services-grid" id="services-content">
+                <!-- Services will be loaded from admin -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Testimoni Pasien</h2>
+                <p class="section-subtitle">Pengalaman pasien yang puas dengan pelayanan kami</p>
+            </div>
+            <div class="testimonials-slider" id="testimonials-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            "Pelayanan yang sangat memuaskan, staf yang ramah dan profesional. Puskesmas Modern benar-benar memberikan pelayanan kesehatan terbaik."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Ibu Sari</h4>
+                                <p>Pasien</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            "Fasilitas yang lengkap dan modern, dokter yang kompeten. Sangat recommended untuk keluarga."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Bapak Ahmad</h4>
+                                <p>Pasien</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <div class="testimonial-text">
+                            "Proses administrasi yang cepat dan efisien. Tidak perlu menunggu lama untuk mendapat pelayanan."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Ibu Dewi</h4>
+                                <p>Pasien</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-controls">
+                <button class="testimonial-btn prev" id="testimonial-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonial-btn next" id="testimonial-next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Galeri</h2>
+                <p class="section-subtitle">Momen dan kegiatan di Puskesmas Modern</p>
+            </div>
+            <div class="gallery-content">
+                <div class="gallery-tabs">
+                    <button class="tab-btn active" data-tab="news">Berita</button>
+                    <button class="tab-btn" data-tab="infographics">Infografis</button>
+                </div>
+                <div class="gallery-grid" id="gallery-content">
+                    <!-- Gallery content will be loaded from admin -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+                <p class="section-subtitle">Temukan jawaban untuk pertanyaan umum tentang layanan kami</p>
+            </div>
+            <div class="faq-content">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Bagaimana cara membuat janji temu?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Anda dapat membuat janji temu dengan menghubungi kami melalui telepon, email, atau mengisi form kontak di website ini. Kami akan mengkonfirmasi jadwal yang tersedia.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apakah ada layanan darurat 24 jam?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, kami menyediakan layanan darurat 24 jam untuk kasus-kasus yang memerlukan penanganan segera. Silakan hubungi nomor darurat kami.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apakah layanan ini menggunakan BPJS?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, kami menerima kartu BPJS untuk layanan kesehatan. Pastikan kartu BPJS Anda masih aktif dan membawa dokumen yang diperlukan.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Berapa biaya konsultasi dokter?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Biaya konsultasi dokter bervariasi tergantung jenis layanan. Untuk informasi lengkap mengenai tarif, silakan hubungi kami atau lihat di halaman layanan.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Apakah ada layanan home visit?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, kami menyediakan layanan home visit untuk pasien yang tidak dapat datang ke puskesmas. Silakan hubungi kami untuk informasi lebih lanjut.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kontak Kami</h2>
+                <p class="section-subtitle">Hubungi kami untuk informasi lebih lanjut</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Alamat</h3>
+                            <p id="contact-address">Jl. Kesehatan No. 123, Kota Modern</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telepon</h3>
+                            <p id="contact-phone">(021) 1234-5678</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p id="contact-email">info@puskesmasmodern.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Jam Operasional</h3>
+                            <p id="contact-hours">Senin - Jumat: 08:00 - 16:00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Nama Lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Nomor Telepon">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Pesan" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-hospital"></i>
+                        <span>Puskesmas Modern</span>
+                    </div>
+                    <p class="footer-description">
+                        Pusat kesehatan terdepan yang memberikan pelayanan kesehatan berkualitas tinggi untuk meningkatkan derajat kesehatan masyarakat.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Layanan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Konsultasi Medis</a></li>
+                        <li><a href="#services">Pemeriksaan Lab</a></li>
+                        <li><a href="#services">Imunisasi</a></li>
+                        <li><a href="#services">Kesehatan Ibu & Anak</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Informasi</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                        <li><a href="#gallery">Galeri</a></li>
+                        <li><a href="#services">Layanan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 class="footer-title">Kontak</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Jl. Kesehatan No. 123, Kota Modern</p>
+                        <p><i class="fas fa-phone"></i> (021) 1234-5678</p>
+                        <p><i class="fas fa-envelope"></i> info@puskesmasmodern.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Puskesmas Modern. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="landing-script.js"></script>
+</body>
+</html>

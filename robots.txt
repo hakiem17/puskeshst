@@ -1,0 +1,60 @@
+# Robots.txt for Puskesmas Modern
+# https://hakiem17.github.io/puskesjshst
+
+User-agent: *
+Allow: /
+
+# Disallow admin panel from search engines
+Disallow: /dashboard-admin.html
+Disallow: /test-functions.html
+
+# Allow main pages
+Allow: /index.html
+Allow: /README.md
+Allow: /LICENSE
+Allow: /CONTRIBUTING.md
+Allow: /CHANGELOG.md
+
+# Sitemap
+Sitemap: https://hakiem17.github.io/puskesjshst/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /

@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Puskesmas Modern</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-cog"></i>
+                    <h1>Admin Panel</h1>
+                </div>
+                <p class="subtitle">Puskesmas Modern</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active">
+                        <a href="#dashboard" class="nav-link" data-section="dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#hero" class="nav-link" data-section="hero">
+                            <i class="fas fa-mountain"></i>
+                            <span>Hero Section</span>
+                        </a>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#profil" class="nav-link" data-section="profil">
+                            <i class="fas fa-user"></i>
+                            <span>Profil</span>
+                            <i class="fas fa-chevron-down submenu-toggle"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="nav-item">
+                                <a href="#visi-misi" class="nav-link submenu-link" data-section="visi-misi">
+                                    <i class="fas fa-eye"></i>
+                                    <span>Visi dan Misi</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                                <a href="#motto-layanan" class="nav-link submenu-link" data-section="motto-layanan">
+                                    <i class="fas fa-quote-left"></i>
+                                    <span>Motto Layanan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#struktur-organisasi" class="nav-link submenu-link" data-section="struktur-organisasi">
+                                    <i class="fas fa-sitemap"></i>
+                                    <span>Struktur Organisasi</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#maklumat-pelayanan" class="nav-link submenu-link" data-section="maklumat-pelayanan">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Maklumat Pelayanan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#kompensasi-layanan" class="nav-link submenu-link" data-section="kompensasi-layanan">
+                                    <i class="fas fa-handshake"></i>
+                                    <span>Kompensasi Layanan</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#pengaduan" class="nav-link" data-section="pengaduan">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Pengaduan</span>
+                            <i class="fas fa-chevron-down submenu-toggle"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="nav-item">
+                                <a href="#jangka-waktu-pelayanan" class="nav-link submenu-link" data-section="jangka-waktu-pelayanan">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Jangka Waktu Pelayanan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                                <a href="#mekanisme-pengaduan" class="nav-link submenu-link" data-section="mekanisme-pengaduan">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Mekanisme Pengaduan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#pengelola-petugas" class="nav-link submenu-link" data-section="pengelola-petugas">
+                                    <i class="fas fa-users"></i>
+                                    <span>Pengelola Petugas</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#sarana-pengaduan" class="nav-link submenu-link" data-section="sarana-pengaduan">
+                                    <i class="fas fa-tools"></i>
+                                    <span>Sarana Pengaduan</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#layanan" class="nav-link" data-section="layanan">
+                            <i class="fas fa-handshake"></i>
+                            <span>Layanan</span>
+                            <i class="fas fa-chevron-down submenu-toggle"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="nav-item">
+                                <a href="#persyaratan" class="nav-link submenu-link" data-section="persyaratan">
+                                    <i class="fas fa-clipboard-check"></i>
+                                    <span>Persyaratan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                                <a href="#alur-mekanisme" class="nav-link submenu-link" data-section="alur-mekanisme">
+                                    <i class="fas fa-route"></i>
+                                    <span>Alur Mekanisme</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#biaya-layanan" class="nav-link submenu-link" data-section="biaya-layanan">
+                                    <i class="fas fa-money-bill-wave"></i>
+                                    <span>Biaya Layanan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#survey-kepuasan" class="nav-link submenu-link" data-section="survey-kepuasan">
+                                    <i class="fas fa-star"></i>
+                                    <span>Survey Kepuasan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#produk-layanan" class="nav-link submenu-link" data-section="produk-layanan">
+                                    <i class="fas fa-box"></i>
+                                    <span>Produk Layanan</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-submenu">
+                        <a href="#gallery" class="nav-link" data-section="gallery">
+                            <i class="fas fa-images"></i>
+                            <span>Gallery</span>
+                            <i class="fas fa-chevron-down submenu-toggle"></i>
+                        </a>
+                        <ul class="submenu">
+                            <li class="nav-item">
+                                <a href="#berita" class="nav-link submenu-link" data-section="berita">
+                                    <i class="fas fa-newspaper"></i>
+                                    <span>Berita</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#infografis" class="nav-link submenu-link" data-section="infografis">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Infografis</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tentang" class="nav-link" data-section="tentang">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Tentang Kami</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#kontak" class="nav-link" data-section="kontak">
+                            <i class="fas fa-phone"></i>
+                            <span>Kontak</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pengaturan-website" class="nav-link" data-section="pengaturan-website">
+                            <i class="fas fa-globe"></i>
+                            <span>Pengaturan Website</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pengaturan" class="nav-link" data-section="pengaturan">
+                            <i class="fas fa-cog"></i>
+                            <span>Pengaturan</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <div class="header-left">
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                <h2 id="page-title">Dashboard</h2>
+                </div>
+                <div class="header-right">
+                    <button class="theme-toggle" id="theme-toggle" title="Toggle Theme">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                <div class="user-info">
+                    <span>Admin</span>
+                    <i class="fas fa-user-circle"></i>
+                        <div class="user-dropdown">
+                            <button class="user-menu-toggle" id="user-menu-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="user-menu" id="user-menu">
+                                <a href="#" class="user-menu-item">
+                                    <i class="fas fa-user"></i>
+                                    <span>Profil</span>
+                                </a>
+                                <a href="#" class="user-menu-item">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Pengaturan</span>
+                                </a>
+                                <hr class="user-menu-divider">
+                                <button class="user-menu-item logout-btn" id="logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>Logout</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-body">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <div class="dashboard-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Total Pasien</h3>
+                                <p class="stat-number">1,234</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Janji Temu Hari Ini</h3>
+                                <p class="stat-number">45</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Pengaduan Baru</h3>
+                                <p class="stat-number">8</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Kunjungan Bulan Ini</h3>
+                                <p class="stat-number">567</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Hero Section -->
+                <section id="hero" class="content-section">
+                    <div class="section-header">
+                        <h3>Hero Section</h3>
+                        <button class="btn btn-primary">Edit Hero</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Judul Utama</label>
+                        <input type="text" class="form-control" value="Selamat Datang di Puskesmas Modern">
+                    </div>
+                    <div class="form-group">
+                        <label>Deskripsi</label>
+                        <textarea class="form-control" rows="3">Layanan kesehatan terbaik untuk masyarakat</textarea>
+                    </div>
+                </section>
+
+                <!-- Profil Section -->
+                <section id="profil" class="content-section">
+                    <div class="section-header">
+                        <h3>Profil Puskesmas</h3>
+                        <button class="btn btn-primary">Edit Profil</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Puskesmas</label>
+                        <input type="text" class="form-control" value="Puskesmas Modern">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea class="form-control" rows="3">Jl. Kesehatan No. 123, Kota Modern</textarea>
+                    </div>
+                </section>
+
+                <!-- Visi dan Misi Section -->
+                <section id="visi-misi" class="content-section">
+                    <div class="section-header">
+                        <h3>Visi dan Misi</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('visi-misi')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('visi-misi')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="visi-misi-title" placeholder="Masukkan judul visi dan misi" value="Visi dan Misi Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="visi-misi-image" accept="image/*" class="image-upload-input">
+                                <label for="visi-misi-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="visi-misi-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="visi-misi-description" rows="8" placeholder="Masukkan visi dan misi puskesmas">Visi:
+Menjadi pusat kesehatan terdepan yang memberikan pelayanan kesehatan berkualitas tinggi untuk meningkatkan derajat kesehatan masyarakat
+
+Misi:
+1. Menyediakan pelayanan kesehatan yang berkualitas dan terjangkau
+2. Meningkatkan kesadaran masyarakat tentang pentingnya kesehatan
+3. Mengembangkan program kesehatan yang inovatif
+4. Membangun kemitraan dengan berbagai pihak untuk kesehatan masyarakat
+5. Meningkatkan kualitas sumber daya manusia kesehatan</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Motto Layanan Section -->
+                <section id="motto-layanan" class="content-section">
+                    <div class="section-header">
+                        <h3>Motto Layanan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('motto-layanan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('motto-layanan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="motto-layanan-title" placeholder="Masukkan judul motto layanan" value="Motto Layanan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="motto-layanan-image" accept="image/*" class="image-upload-input">
+                                <label for="motto-layanan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="motto-layanan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="motto-layanan-description" rows="4" placeholder="Jelaskan makna motto layanan">Motto ini mencerminkan komitmen kami untuk memberikan pelayanan kesehatan yang tidak hanya profesional, tetapi juga dilandasi dengan ketulusan hati dan keikhlasan dalam mengabdi kepada masyarakat.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Struktur Organisasi Section -->
+                <section id="struktur-organisasi" class="content-section">
+                    <div class="section-header">
+                        <h3>Struktur Organisasi</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('struktur-organisasi')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('struktur-organisasi')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="struktur-organisasi-title" placeholder="Masukkan judul struktur organisasi" value="Struktur Organisasi Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="struktur-organisasi-image" accept="image/*" class="image-upload-input">
+                                <label for="struktur-organisasi-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="struktur-organisasi-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="struktur-organisasi-description" rows="4" placeholder="Jelaskan struktur organisasi puskesmas">Puskesmas Modern dipimpin oleh Kepala Puskesmas yang dibantu oleh Wakil Kepala Puskesmas. Struktur organisasi meliputi berbagai bidang pelayanan kesehatan yang terintegrasi untuk memberikan pelayanan yang optimal kepada masyarakat.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Maklumat Pelayanan Section -->
+                <section id="maklumat-pelayanan" class="content-section">
+                    <div class="section-header">
+                        <h3>Maklumat Pelayanan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('maklumat-pelayanan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('maklumat-pelayanan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="maklumat-pelayanan-title" placeholder="Masukkan judul maklumat pelayanan" value="Maklumat Pelayanan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="maklumat-pelayanan-image" accept="image/*" class="image-upload-input">
+                                <label for="maklumat-pelayanan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="maklumat-pelayanan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="maklumat-pelayanan-description" rows="5" placeholder="Jelaskan maklumat pelayanan puskesmas">Jam Operasional: Senin - Jumat: 08:00 - 16:00 WIB
+
+Layanan yang Tersedia:
+• Konsultasi Dokter Umum
+• Pemeriksaan Kesehatan
+• Imunisasi
+• Kesehatan Ibu dan Anak (KIA)
+• Program Keluarga Berencana (KB)
+• Pemeriksaan Laboratorium
+• Apotek
+• Ruang Gawat Darurat (24 jam)
+
+Persyaratan Pelayanan:
+• Membawa KTP/Kartu Keluarga
+• Membawa kartu asuransi kesehatan (jika ada)
+• Mengisi formulir pendaftaran
+• Mengikuti antrian sesuai nomor yang diberikan</textarea>
+                        </div>
+                </section>
+
+                <!-- Kompensasi Layanan Section -->
+                <section id="kompensasi-layanan" class="content-section">
+                    <div class="section-header">
+                        <h3>Kompensasi Layanan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('kompensasi-layanan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('kompensasi-layanan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="kompensasi-layanan-title" placeholder="Masukkan judul kompensasi layanan" value="Kompensasi Layanan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="kompensasi-layanan-image" accept="image/*" class="image-upload-input">
+                                <label for="kompensasi-layanan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="kompensasi-layanan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="kompensasi-layanan-description" rows="8" placeholder="Jelaskan kompensasi layanan puskesmas">Tarif Layanan:
+
+• Konsultasi Dokter Umum: Gratis (Dengan BPJS/KIS)
+• Pemeriksaan Laboratorium: Rp 25.000 (Per paket)
+• Imunisasi: Gratis (Program pemerintah)
+• Konsultasi Spesialis: Rp 50.000 (Rujukan dari dokter umum)
+
+Metode Pembayaran:
+• Tunai
+• BPJS Kesehatan
+• Kartu Indonesia Sehat (KIS)
+
+Semua layanan kesehatan di puskesmas ini mengikuti standar tarif yang telah ditetapkan oleh pemerintah dan dapat menggunakan berbagai metode pembayaran yang tersedia.</textarea>
+                    </div>
+                </section>
+
+                <!-- Pengaduan Section -->
+                <section id="pengaduan" class="content-section">
+                    <div class="section-header">
+                        <h3>Pengaduan</h3>
+                        <button class="btn btn-primary">Tambah Pengaduan</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama</th>
+                                    <th>Email</th>
+                                    <th>Subjek</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001</td>
+                                    <td>John Doe</td>
+                                    <td>john@email.com</td>
+                                    <td>Pelayanan Lambat</td>
+                                    <td><span class="badge badge-warning">Pending</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-primary">Lihat</button>
+                                        <button class="btn btn-sm btn-success">Selesai</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Jangka Waktu Pelayanan Section -->
+                <section id="jangka-waktu-pelayanan" class="content-section">
+                    <div class="section-header">
+                        <h3>Jangka Waktu Pelayanan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('jangka-waktu-pelayanan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('jangka-waktu-pelayanan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="jangka-waktu-pelayanan-title" placeholder="Masukkan judul jangka waktu pelayanan" value="Jangka Waktu Pelayanan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="jangka-waktu-pelayanan-image" accept="image/*" class="image-upload-input">
+                                <label for="jangka-waktu-pelayanan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="jangka-waktu-pelayanan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="jangka-waktu-pelayanan-description" rows="8" placeholder="Jelaskan jangka waktu pelayanan puskesmas">Standar Waktu Pelayanan:
+
+• Konsultasi Dokter Umum: 15 menit (Per pasien)
+• Pemeriksaan Laboratorium: 30 menit (Hasil siap dalam 2 jam)
+• Imunisasi: 10 menit (Per anak)
+• Pemeriksaan KIA: 20 menit (Per ibu dan anak)
+• Konsultasi KB: 15 menit (Per pasien)
+• Pemeriksaan Gigi: 25 menit (Per pasien)
+
+Kami berkomitmen untuk memberikan pelayanan kesehatan sesuai dengan standar waktu yang telah ditetapkan untuk memastikan kenyamanan dan kepuasan pasien.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Mekanisme Pengaduan Section -->
+                <section id="mekanisme-pengaduan" class="content-section">
+                    <div class="section-header">
+                        <h3>Mekanisme Pengaduan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('mekanisme-pengaduan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('mekanisme-pengaduan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="mekanisme-pengaduan-title" placeholder="Masukkan judul mekanisme pengaduan" value="Mekanisme Pengaduan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="mekanisme-pengaduan-image" accept="image/*" class="image-upload-input">
+                                <label for="mekanisme-pengaduan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="mekanisme-pengaduan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="mekanisme-pengaduan-description" rows="10" placeholder="Jelaskan mekanisme pengaduan puskesmas">Alur Pengaduan:
+
+1. Pengajuan - Pengaduan diajukan melalui form online atau langsung ke petugas
+2. Verifikasi - Petugas memverifikasi dan mencatat pengaduan dalam sistem
+3. Penanganan - Pengaduan ditangani sesuai dengan prosedur yang berlaku
+4. Penyelesaian - Hasil penanganan dikomunikasikan kepada pengadu
+
+Prosedur Pengaduan:
+1. Pengaduan dapat diajukan secara lisan atau tertulis
+2. Pengaduan harus disertai identitas pengadu yang jelas
+3. Pengaduan akan diverifikasi dalam waktu 1x24 jam
+4. Penanganan pengaduan maksimal 5 hari kerja
+5. Hasil penanganan akan dikomunikasikan kepada pengadu
+6. Pengaduan yang tidak dapat diselesaikan akan diangkat ke tingkat yang lebih tinggi</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pengelola Petugas Section -->
+                <section id="pengelola-petugas" class="content-section">
+                    <div class="section-header">
+                        <h3>Pengelola Petugas</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('pengelola-petugas')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('pengelola-petugas')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="pengelola-petugas-title" placeholder="Masukkan judul pengelola petugas" value="Pengelola Petugas Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="pengelola-petugas-image" accept="image/*" class="image-upload-input">
+                                <label for="pengelola-petugas-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="pengelola-petugas-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="pengelola-petugas-description" rows="8" placeholder="Jelaskan pengelola petugas puskesmas">Struktur Pengelola Petugas:
+
+• Kepala Puskesmas: Dr. Ahmad Hakim, M.Kes
+• Wakil Kepala: Dr. Sarah Wijaya, M.Kes
+• Koordinator Pelayanan: dr. Budi Santoso
+• Koordinator Keperawatan: Ns. Siti Nurhaliza, S.Kep
+• Koordinator Kesehatan Masyarakat: dr. Maria Magdalena, M.Kes
+
+Tugas dan Tanggung Jawab:
+1. Memastikan kualitas pelayanan kesehatan sesuai standar
+2. Mengelola jadwal dan distribusi tugas petugas
+3. Melakukan evaluasi kinerja petugas secara berkala
+4. Mengembangkan kompetensi petugas melalui pelatihan
+5. Menjaga koordinasi antar unit pelayanan</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sarana Pengaduan Section -->
+                <section id="sarana-pengaduan" class="content-section">
+                    <div class="section-header">
+                        <h3>Sarana Pengaduan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('sarana-pengaduan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('sarana-pengaduan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="sarana-pengaduan-title" placeholder="Masukkan judul sarana pengaduan" value="Sarana Pengaduan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="sarana-pengaduan-image" accept="image/*" class="image-upload-input">
+                                <label for="sarana-pengaduan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="sarana-pengaduan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="sarana-pengaduan-description" rows="10" placeholder="Jelaskan sarana pengaduan puskesmas">Media Pengaduan:
+
+• Telepon: Hotline (021) 123-4567
+• Email: pengaduan@puskesmasmodern.com
+• Website: Form pengaduan online
+• Kotak Saran: Kotak saran di lobi puskesmas
+
+Formulir Pengaduan:
+1. Nama Lengkap
+2. No. Telepon
+3. Email
+4. Jenis Pengaduan
+5. Deskripsi Pengaduan
+6. Tanggal Kejadian
+7. Lokasi Kejadian
+
+Kami menyediakan berbagai sarana pengaduan untuk memudahkan masyarakat dalam menyampaikan keluhan atau saran terkait pelayanan puskesmas.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Layanan Section -->
+                <section id="layanan" class="content-section">
+                    <div class="section-header">
+                        <h3>Layanan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('layanan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('layanan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                    </div>
+                        </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="layanan-title" placeholder="Masukkan judul layanan" value="Layanan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="layanan-image" accept="image/*" class="image-upload-input">
+                                <label for="layanan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="layanan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="layanan-description" rows="8" placeholder="Jelaskan layanan puskesmas">Layanan yang Tersedia:
+
+• Konsultasi Dokter - Layanan konsultasi dengan dokter umum
+• Pemeriksaan Kesehatan - Pemeriksaan rutin dan laboratorium
+• Kesehatan Ibu dan Anak - Layanan khusus untuk ibu dan anak
+• Imunisasi - Program imunisasi untuk anak-anak
+• Program Keluarga Berencana - Konsultasi dan layanan KB
+• Apotek - Layanan obat-obatan dan farmasi
+• Ruang Gawat Darurat - Layanan darurat 24 jam
+
+Kami menyediakan berbagai layanan kesehatan yang komprehensif untuk memenuhi kebutuhan kesehatan masyarakat.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Persyaratan Section -->
+                <section id="persyaratan" class="content-section">
+                    <div class="section-header">
+                        <h3>Persyaratan Layanan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('persyaratan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('persyaratan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="persyaratan-title" placeholder="Masukkan judul persyaratan layanan" value="Persyaratan Layanan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="persyaratan-image" accept="image/*" class="image-upload-input">
+                                <label for="persyaratan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="persyaratan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="persyaratan-description" rows="10" placeholder="Jelaskan persyaratan layanan puskesmas">Persyaratan Umum:
+
+• Konsultasi Dokter Umum: KTP/Kartu Keluarga, Kartu Asuransi (jika ada)
+• Pemeriksaan Laboratorium: Rujukan dari dokter, KTP, Kartu Asuransi
+• Imunisasi: Buku KIA/KMS, KTP orang tua
+• Kesehatan Ibu dan Anak: Buku KIA, KTP ibu
+• Program KB: KTP, Surat keterangan dari suami
+• Konsultasi Spesialis: Rujukan dari dokter umum, KTP
+
+Dokumen yang Diperlukan:
+1. KTP/Kartu Keluarga
+2. Kartu Asuransi Kesehatan (BPJS/KIS)
+3. Surat Rujukan (untuk layanan tertentu)
+4. Buku KIA/KMS (untuk layanan ibu dan anak)
+
+Pastikan membawa dokumen yang diperlukan sesuai dengan jenis layanan yang akan digunakan.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Alur Mekanisme Section -->
+                <section id="alur-mekanisme" class="content-section">
+                    <div class="section-header">
+                        <h3>Alur Mekanisme Layanan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('alur-mekanisme')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('alur-mekanisme')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="alur-mekanisme-title" placeholder="Masukkan judul alur mekanisme layanan" value="Alur Mekanisme Layanan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="alur-mekanisme-image" accept="image/*" class="image-upload-input">
+                                <label for="alur-mekanisme-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="alur-mekanisme-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="alur-mekanisme-description" rows="10" placeholder="Jelaskan alur mekanisme layanan puskesmas">ALUR PELAYANAN UMUM
+
+1. Pendaftaran
+   Pasien mendaftar di loket dengan membawa dokumen persyaratan
+
+2. Pengambilan Nomor
+   Sistem antrian otomatis memberikan nomor urut
+
+3. Menunggu
+   Pasien menunggu sesuai nomor antrian yang dipanggil
+
+4. Konsultasi
+   Pemeriksaan dan konsultasi dengan dokter
+
+5. Pemberian Resep
+   Dokter memberikan resep obat jika diperlukan
+
+6. Pembayaran
+   Pasien melakukan pembayaran di kasir
+
+7. Pengambilan Obat
+   Pasien mengambil obat di apotek
+
+PROSEDUR KHUSUS
+
+• Pasien gawat darurat mendapat prioritas pelayanan
+• Pasien lansia dan disabilitas mendapat pendampingan khusus
+• Sistem antrian menggunakan teknologi digital
+• Waktu pelayanan sesuai dengan standar yang ditetapkan</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Biaya Layanan Section -->
+                <section id="biaya-layanan" class="content-section">
+                    <div class="section-header">
+                        <h3>Biaya Layanan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('biaya-layanan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('biaya-layanan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="biaya-layanan-title" placeholder="Masukkan judul biaya layanan" value="Biaya Layanan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="biaya-layanan-image" accept="image/*" class="image-upload-input">
+                                <label for="biaya-layanan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="biaya-layanan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="biaya-layanan-description" rows="12" placeholder="Jelaskan biaya layanan puskesmas">TARIF LAYANAN
+
+• Konsultasi Dokter Umum
+  Normal: Rp 25.000 | BPJS/KIS: Gratis
+
+• Pemeriksaan Laboratorium
+  Normal: Rp 50.000 | BPJS/KIS: Gratis
+
+• Imunisasi
+  Gratis (Program Pemerintah)
+
+• Konsultasi Spesialis
+  Normal: Rp 75.000 | BPJS/KIS: Gratis
+
+• Pemeriksaan Gigi
+  Normal: Rp 30.000 | BPJS/KIS: Gratis
+
+• Rawat Inap
+  Normal: Rp 100.000/hari | BPJS/KIS: Gratis
+
+METODE PEMBAYARAN
+
+• Tunai
+• BPJS Kesehatan
+• Kartu Indonesia Sehat (KIS)
+• Asuransi Swasta
+
+KEBIJAKAN KHUSUS
+
+• Gratis untuk masyarakat tidak mampu dengan surat keterangan
+• Diskon 50% untuk lansia di atas 70 tahun
+• Program subsidi untuk anak balita</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Survey Kepuasan Section -->
+                <section id="survey-kepuasan" class="content-section">
+                    <div class="section-header">
+                        <h3>Survey Kepuasan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('survey-kepuasan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('survey-kepuasan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="survey-kepuasan-title" placeholder="Masukkan judul survey kepuasan" value="Survey Kepuasan Pelayanan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="survey-kepuasan-image" accept="image/*" class="image-upload-input">
+                                <label for="survey-kepuasan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="survey-kepuasan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="survey-kepuasan-description" rows="8" placeholder="Jelaskan survey kepuasan pelayanan puskesmas">FORM SURVEY KEPUASAN
+
+1. Nama Pasien
+   Masukkan nama lengkap pasien
+
+2. Jenis Layanan yang Diterima
+   • Konsultasi Dokter Umum
+   • Pemeriksaan Laboratorium
+   • Imunisasi
+   • Konsultasi Spesialis
+
+3. Penilaian Kualitas Pelayanan (1-5)
+   • Keramahan Petugas
+   • Kecepatan Pelayanan
+   • Kebersihan Fasilitas
+   • Kualitas Konsultasi
+   • Kepuasan Keseluruhan
+
+4. Saran dan Masukan
+   Berikan saran untuk perbaikan pelayanan
+
+5. Rekomendasi
+   Apakah akan merekomendasikan puskesmas ini kepada orang lain?
+
+Kami menghargai setiap masukan untuk meningkatkan kualitas pelayanan kesehatan.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Produk Layanan Section -->
+                <section id="produk-layanan" class="content-section">
+                    <div class="section-header">
+                        <h3>Produk Layanan</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('produk-layanan')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('produk-layanan')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="produk-layanan-title" placeholder="Masukkan judul produk layanan" value="Produk Layanan Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="produk-layanan-image" accept="image/*" class="image-upload-input">
+                                <label for="produk-layanan-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="produk-layanan-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="produk-layanan-description" rows="8" placeholder="Jelaskan produk layanan puskesmas">KATALOG PRODUK LAYANAN
+
+1. KONSULTASI MEDIS
+   • Konsultasi Dokter Umum - Rp 25.000 (15-30 menit)
+   • Konsultasi Spesialis - Rp 50.000 (30-45 menit)
+   • Konsultasi Gizi - Rp 30.000 (20 menit)
+   • Konsultasi Kesehatan Mental - Rp 40.000 (30 menit)
+
+2. PEMERIKSAAN LABORATORIUM
+   • Pemeriksaan Darah Lengkap - Rp 50.000 (2 jam hasil)
+   • Pemeriksaan Urine - Rp 25.000 (1 jam hasil)
+   • Pemeriksaan Gula Darah - Rp 15.000 (30 menit)
+   • Pemeriksaan Kolesterol - Rp 20.000 (1 jam)
+
+3. IMUNISASI
+   • Imunisasi Dasar Anak - GRATIS
+   • Imunisasi Lanjutan - GRATIS
+   • Imunisasi Dewasa - GRATIS
+   • Vaksin COVID-19 - GRATIS
+
+4. LAYANAN KHUSUS
+   • Program Keluarga Berencana - GRATIS
+   • Kesehatan Ibu dan Anak - GRATIS
+   • Program Gizi - GRATIS
+   • Gawat Darurat 24 Jam - Rp 100.000
+
+PAKET LAYANAN UNGGULAN
+• Paket Sehat Keluarga: Konsultasi + Lab + Obat - Rp 150.000
+• Paket Ibu Hamil: Konsultasi + USG + Vitamin - Rp 200.000
+• Paket Anak Sehat: Imunisasi + Konsultasi + Vitamin - Rp 75.000
+• Paket Lansia: Konsultasi + Lab + Obat - Rp 100.000
+
+Semua layanan tersedia dengan standar pelayanan yang berkualitas tinggi.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Gallery Section -->
+                <section id="gallery" class="content-section">
+                    <div class="section-header">
+                        <h3>Gallery</h3>
+                        <button class="btn btn-primary">Upload Gambar</button>
+                    </div>
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/300x200" alt="Gallery Image">
+                            <div class="gallery-overlay">
+                                <button class="btn btn-sm btn-danger">Hapus</button>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://via.placeholder.com/300x200" alt="Gallery Image">
+                            <div class="gallery-overlay">
+                                <button class="btn btn-sm btn-danger">Hapus</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Berita Section -->
+                <section id="berita" class="content-section">
+                    <div class="section-header">
+                        <h3>Berita</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('berita')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('berita')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="berita-title" placeholder="Masukkan judul berita" value="Berita Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="berita-image" accept="image/*" class="image-upload-input">
+                                <label for="berita-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="berita-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="berita-description" rows="10" placeholder="Jelaskan berita puskesmas">BERITA TERKINI PUSKESMAS
+
+1. TIPS KESEHATAN DI MUSIM HUJAN
+   • Selalu gunakan payung atau jas hujan
+   • Konsumsi vitamin C untuk daya tahan tubuh
+   • Hindari genangan air untuk mencegah DBD
+   • Jaga kebersihan lingkungan sekitar
+
+2. PROGRAM IMUNISASI GRATIS
+   • Imunisasi rutin untuk balita
+   • Vaksin COVID-19 untuk dewasa
+   • Imunisasi campak dan rubella
+   • Jadwal imunisasi setiap hari Senin-Jumat
+
+3. PENCEGAHAN DEMAM BERDARAH
+   • 3M: Menguras, Menutup, Mengubur
+   • Gunakan lotion anti nyamuk
+   • Pasang kelambu di tempat tidur
+   • Segera ke puskesmas jika demam tinggi
+
+4. PENGUMUMAN PENTING
+   • Jam operasional: 07.00-15.00 WIB
+   • Layanan gawat darurat 24 jam
+   • Pendaftaran online tersedia
+   • Protokol kesehatan tetap berlaku
+
+Ikuti terus informasi terkini dari Puskesmas untuk kesehatan keluarga Anda.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Infografis Section -->
+                <section id="infografis" class="content-section">
+                    <div class="section-header">
+                        <h3>Infografis</h3>
+                        <div class="btn-group">
+                            <button class="btn btn-primary" onclick="saveContent('infografis')">
+                                <i class="fas fa-save"></i> Simpan
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteContent('infografis')">
+                                <i class="fas fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-form">
+                        <div class="form-group">
+                            <label>Judul</label>
+                            <input type="text" class="form-control" id="infografis-title" placeholder="Masukkan judul infografis" value="Infografis Puskesmas">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Upload Gambar</label>
+                            <div class="image-upload-container">
+                                <input type="file" id="infografis-image" accept="image/*" class="image-upload-input">
+                                <label for="infografis-image" class="image-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Pilih Gambar</span>
+                                </label>
+                                <div class="image-preview" id="infografis-preview"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Deskripsi</label>
+                            <textarea class="form-control" id="infografis-description" rows="10" placeholder="Jelaskan infografis puskesmas">INFOGRAFIS KESEHATAN PUSKESMAS
+
+1. STATISTIK KESEHATAN
+   • Jumlah pasien per bulan: 1,500 orang
+   • Layanan paling populer: Konsultasi Umum
+   • Tingkat kepuasan pasien: 95%
+   • Cakupan imunisasi: 98%
+
+2. PROSEDUR PELAYANAN
+   • Pendaftaran → Antrian → Konsultasi → Resep → Apotek
+   • Waktu tunggu rata-rata: 15 menit
+   • Jam operasional: 07.00-15.00 WIB
+   • Layanan gawat darurat: 24 jam
+
+3. TIPS KESEHATAN
+   • Cuci tangan dengan sabun
+   • Konsumsi makanan bergizi
+   • Olahraga rutin 30 menit/hari
+   • Istirahat yang cukup 7-8 jam
+
+4. DATA PUSKESMAS
+   • Dokter umum: 3 orang
+   • Perawat: 8 orang
+   • Bidan: 2 orang
+   • Tenaga administrasi: 4 orang
+
+5. PANDUAN PASIEN
+   • Bawa KTP dan kartu asuransi
+   • Datang sesuai jadwal
+   • Ikuti protokol kesehatan
+   • Patuhi aturan antrian
+
+Infografis ini membantu masyarakat memahami layanan puskesmas dengan lebih baik.</textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tentang Kami Section -->
+                <section id="tentang" class="content-section">
+                    <div class="section-header">
+                        <h3>Tentang Kami</h3>
+                        <button class="btn btn-primary">Edit Tentang Kami</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Sejarah</label>
+                        <textarea class="form-control" rows="5">Puskesmas Modern didirikan pada tahun 2020 dengan visi menjadi pusat kesehatan terdepan...</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Visi</label>
+                        <input type="text" class="form-control" value="Menjadi pusat kesehatan terdepan">
+                    </div>
+                    <div class="form-group">
+                        <label>Misi</label>
+                        <textarea class="form-control" rows="3">Memberikan pelayanan kesehatan yang berkualitas...</textarea>
+                    </div>
+                </section>
+
+                <!-- Kontak Section -->
+                <section id="kontak" class="content-section">
+                    <div class="section-header">
+                        <h3>Kontak</h3>
+                        <button class="btn btn-primary">Edit Kontak</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Telepon</label>
+                        <input type="text" class="form-control" value="(021) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" value="info@puskesmasmodern.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat Lengkap</label>
+                        <textarea class="form-control" rows="3">Jl. Kesehatan No. 123, Kelurahan Modern, Kecamatan Sehat, Kota Modern 12345</textarea>
+                    </div>
+                </section>
+
+                <!-- Pengaturan Website Section -->
+                <section id="pengaturan-website" class="content-section">
+                    <div class="section-header">
+                        <h3>Pengaturan Website</h3>
+                        <button class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Nama Website</label>
+                        <input type="text" class="form-control" value="Puskesmas Modern">
+                    </div>
+                    <div class="form-group">
+                        <label>Logo</label>
+                        <input type="file" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Favicon</label>
+                        <input type="file" class="form-control">
+                    </div>
+                </section>
+
+                <!-- Pengaturan Section -->
+                <section id="pengaturan" class="content-section">
+                    <div class="section-header">
+                        <h3>Pengaturan Sistem</h3>
+                        <button class="btn btn-primary">Simpan Pengaturan</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Waktu Operasional</label>
+                        <input type="text" class="form-control" value="Senin - Jumat: 08:00 - 16:00">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Notifikasi</label>
+                        <input type="email" class="form-control" value="admin@puskesmasmodern.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Backup Database</label>
+                        <button class="btn btn-secondary">Buat Backup</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+# GitHub Pages Configuration
+# Site settings
+title: "Puskesmas Modern - Sistem Manajemen Puskesmas"
+description: "Sistem manajemen puskesmas modern dengan admin panel dan landing page responsif"
+url: "https://hakiem17.github.io"
+baseurl: "/puskesjshst"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Navigation
+navigation:
+  - title: "Beranda"
+    url: "/"
+  - title: "Admin Panel"
+    url: "/dashboard-admin.html"
+  - title: "Dokumentasi"
+    url: "/README.md"
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "doc"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .gitignore
+  - .gitattributes
+  - README.md
+  - LICENSE
+  - CONTRIBUTING.md
+  - CHANGELOG.md
+  - package.json
+  - package-lock.json
+  - .github/
+
+# Include
+include:
+  - _redirects
+
+# SEO
+seo:
+  type: "WebSite"
+  name: "Puskesmas Modern"
+  description: "Sistem manajemen puskesmas modern dengan admin panel dan landing page responsif"
+  url: "https://hakiem17.github.io/puskesjshst"
+  image: "/assets/images/og-image.jpg"
+  twitter:
+    card: "summary_large_image"
+    site: "@hakiem17"
+  facebook:
+    app_id: "123456789"
+    admins: "123456789"
+
+# Analytics
+google_analytics: "G-XXXXXXXXXX"
+
+# Social
+social:
+  github: "hakiem17"
+  twitter: "hakiem17"
+  linkedin: "hakiem17"
+  email: "hakiem17@example.com"
+
+# Author
+author:
+  name: "Ahmad Hakim"
+  email: "hakiem17@example.com"
+  github: "hakiem17"
+  twitter: "hakiem17"
+  linkedin: "hakiem17"
+
+# Repository
+repository: "hakiem17/puskesjshst"
+repository_url: "https://github.com/hakiem17/puskesjshst"
+
+# Build
+source: "."
+destination: "_site"
+plugins_dir: "_plugins"
+layouts_dir: "_layouts"
+data_dir: "_data"
+includes_dir: "_includes"
+collections_dir: "_collections"
+
+# Server
+host: "0.0.0.0"
+port: 4000
+baseurl: ""
+show_dir_listing: false
+
+# Markdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+textile_ext: "textile"
+
+# Liquid
+liquid:
+  error_mode: "warn"
+  strict_filters: false
+  strict_variables: false
+
+# Sass
+sass:
+  style: "compressed"
+  load_paths:
+    - "_sass"
+
+# Kramdown
+kramdown:
+  input: "GFM"
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: "as_char"
+  toc_levels: "1..6"
+  smart_quotes: "lsquo,rsquo,ldquo,rdquo"
+  enable_coderay: false
+
+# Coderay
+coderay:
+  coderay_line_numbers: "inline"
+  coderay_css: "class"
+
+# Timezone
+timezone: "Asia/Jakarta"
+
+# Encoding
+encoding: "utf-8"
+
+# Safe
+safe: false
+
+# Future
+future: false
+
+# Unpublished
+unpublished: false
+
+# Limit posts
+limit_posts: 0
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Permalinks
+permalink: "date"
+
+# Categories
+category_dir: "categories"
+tag_dir: "tags"
+
+# Archives
+archive_dir: "archives"
+
+# Feed
+feed:
+  path: "feed.xml"
+  limit: 20
+
+# Sitemap
+sitemap:
+  path: "sitemap.xml"
+  changefreq: "weekly"
+  priority: 0.5
+
+# Robots
+robots:
+  path: "robots.txt"
+  sitemap: "sitemap.xml"
+
+# Redirects
+redirect_from:
+  - "/old-url"
+  - "/another-old-url"
+
+# Headers
+headers:
+  - path: "*.html"
+    values:
+      X-Frame-Options: "SAMEORIGIN"
+      X-Content-Type-Options: "nosniff"
+      X-XSS-Protection: "1; mode=block"
+      Referrer-Policy: "strict-origin-when-cross-origin"

@@ -1,0 +1,19 @@
+# Netlify redirects (if using Netlify)
+# GitHub Pages redirects
+
+# Redirect old URLs to new ones
+/old-admin /dashboard-admin.html 301
+/old-landing /index.html 301
+
+# Redirect root to landing page
+/ /index.html 200
+
+# Admin panel redirect
+/admin /dashboard-admin.html 301
+/dashboard /dashboard-admin.html 301
+
+# API redirects (if needed)
+/api/* /api/:splat 200
+
+# SPA redirects (if needed)
+/* /index.html 200

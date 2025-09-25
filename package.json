@@ -1,22 +1,67 @@
 {
-  "name": "puskesmas-website",
+  "name": "puskesmas-modern",
   "version": "1.0.0",
-  "description": "Website Puskesmas Modern",
-  "main": "index.js",
+  "description": "Sistem manajemen puskesmas modern dengan admin panel dan landing page responsif",
+  "main": "index.html",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000 -o",
+    "dev": "npx live-server --port=8000 --open=/index.html",
+    "build": "echo 'No build process needed for static site'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linting configured'",
+    "format": "prettier --write ."
   },
-  "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^8.0.3",
-    "cors": "^2.8.5",
-    "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2",
-    "dotenv": "^16.3.1",
-    "express-validator": "^7.0.1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hakiem17/puskesjshst.git"
   },
+  "keywords": [
+    "puskesmas",
+    "healthcare",
+    "admin-panel",
+    "landing-page",
+    "responsive",
+    "javascript",
+    "html5",
+    "css3",
+    "healthcare-management",
+    "medical",
+    "hospital",
+    "clinic"
+  ],
+  "author": {
+    "name": "Ahmad Hakim",
+    "email": "hakiem17@example.com",
+    "url": "https://github.com/hakiem17"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hakiem17/puskesjshst/issues"
+  },
+  "homepage": "https://github.com/hakiem17/puskesjshst#readme",
   "devDependencies": {
-    "nodemon": "^3.0.2"
-  }
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "prettier": "^3.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "files": [
+    "index.html",
+    "dashboard-admin.html",
+    "styles.css",
+    "landing-styles.css",
+    "script.js",
+    "landing-script.js",
+    "README.md",
+    "LICENSE"
+  ]
 }
