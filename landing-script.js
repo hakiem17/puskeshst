@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initializeLoadingScreen();
     initializeNavigation();
+    initializeDropdowns();
+    initializeThemeToggle();
     initializeCarousel();
     initializeScrollEffects();
     initializeContactForm();
@@ -10,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeBackToTop();
     initializeTestimonials();
     initializeFAQ();
+    initializeAdminIntegration();
 });
 
 // Navigation functionality
@@ -32,19 +35,62 @@ function initializeNavigation() {
         });
     });
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for navigation links (only for anchor links)
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            // Only prevent default for anchor links (#)
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                    
+                    // Scroll to section
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Load content for the section
+                    loadSectionContent(targetId);
+                }
             }
+            // For external links (.html), let them navigate normally
+        });
+    });
+    
+    // Handle dropdown item clicks (only for anchor links)
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            
+            // Only prevent default for anchor links (#)
+            if (targetId && targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                    
+                    // Scroll to section
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Load content for the section
+                    loadSectionContent(targetId);
+                }
+            }
+            // For external links (.html), let them navigate normally
         });
     });
 
@@ -70,12 +116,254 @@ function initializeNavigation() {
     });
 }
 
+// Load section content from admin data
+function loadSectionContent(sectionId) {
+    const contentElement = document.querySelector(`${sectionId}-content`);
+    if (!contentElement) return;
+    
+    // Get section name from ID
+    const sectionName = sectionId.replace('#', '').replace('-', '_');
+    
+    // Try to load content from localStorage (admin data)
+    const adminData = localStorage.getItem('adminData');
+    if (adminData) {
+        try {
+            const data = JSON.parse(adminData);
+            const sectionData = data[sectionName];
+            
+            if (sectionData && sectionData.content) {
+                contentElement.innerHTML = sectionData.content;
+                return;
+            }
+        } catch (e) {
+            console.log('Error parsing admin data:', e);
+        }
+    }
+    
+    // Default content if no admin data
+    loadDefaultContent(sectionId, contentElement);
+}
+
+// Load default content for sections
+function loadDefaultContent(sectionId, contentElement) {
+    const defaultContent = {
+        'visi-misi': `
+            <div class="content-grid">
+                <div class="content-item">
+                    <h3>Visi</h3>
+                    <p>Menjadi puskesmas terdepan dalam memberikan pelayanan kesehatan yang berkualitas, terjangkau, dan berorientasi pada kepuasan masyarakat.</p>
+                </div>
+                <div class="content-item">
+                    <h3>Misi</h3>
+                    <ul>
+                        <li>Menyelenggarakan pelayanan kesehatan yang bermutu dan terjangkau</li>
+                        <li>Meningkatkan derajat kesehatan masyarakat melalui upaya promotif, preventif, kuratif, dan rehabilitatif</li>
+                        <li>Mengembangkan sumber daya manusia yang profesional dan berdedikasi</li>
+                        <li>Menerapkan manajemen yang transparan dan akuntabel</li>
+                    </ul>
+                </div>
+            </div>
+        `,
+        'motto-layanan': `
+            <div class="content-item">
+                <h3>Motto Layanan</h3>
+                <p><strong>"Melayani dengan Hati, Berbakti untuk Negeri"</strong></p>
+                <p>Kami berkomitmen untuk memberikan pelayanan kesehatan terbaik dengan pendekatan yang humanis dan profesional.</p>
+            </div>
+        `,
+        'struktur-organisasi': `
+            <div class="content-item">
+                <h3>Struktur Organisasi</h3>
+                <p>Struktur organisasi Puskesmas Modern terdiri dari berbagai unit yang saling mendukung untuk memberikan pelayanan kesehatan yang optimal.</p>
+                <div class="org-chart">
+                    <div class="org-level">
+                        <div class="org-position">Kepala Puskesmas</div>
+                    </div>
+                    <div class="org-level">
+                        <div class="org-position">Wakil Kepala</div>
+                        <div class="org-position">Koordinator Pelayanan</div>
+                    </div>
+                </div>
+            </div>
+        `,
+        'maklumat-pelayanan': `
+            <div class="content-item">
+                <h3>Maklumat Pelayanan</h3>
+                <p>Informasi lengkap tentang pelayanan yang kami sediakan untuk masyarakat.</p>
+                <div class="service-info">
+                    <h4>Jam Pelayanan</h4>
+                    <p>Senin - Jumat: 08:00 - 16:00 WIB</p>
+                    <p>Sabtu: 08:00 - 12:00 WIB</p>
+                    <p>Minggu: Tutup</p>
+                </div>
+            </div>
+        `,
+        'kompensasi-layanan': `
+            <div class="content-item">
+                <h3>Kompensasi Layanan</h3>
+                <p>Kami menyediakan kompensasi dan ganti rugi sesuai dengan standar pelayanan kesehatan yang berlaku.</p>
+            </div>
+        `
+    };
+    
+    const content = defaultContent[sectionId.replace('#', '')] || `
+        <div class="content-item">
+            <h3>Konten ${sectionId.replace('#', '').replace('-', ' ')}</h3>
+            <p>Konten ini akan diisi melalui panel admin. Silakan login ke admin panel untuk mengelola konten ini.</p>
+        </div>
+    `;
+    
+    contentElement.innerHTML = content;
+}
+
+// Dropdown functionality
+function initializeDropdowns() {
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    
+    dropdownToggles.forEach(toggle => {
+        const dropdown = toggle.closest('.nav-dropdown');
+        const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+        
+        // Desktop hover functionality
+        dropdown.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 768) {
+                dropdownMenu.style.display = 'block';
+            }
+        });
+        
+        dropdown.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 768) {
+                dropdownMenu.style.display = 'none';
+            }
+        });
+        
+        // Mobile click functionality
+        toggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+                
+                // Close other dropdowns
+                document.querySelectorAll('.nav-dropdown').forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            if (!e.target.closest('.nav-dropdown')) {
+                document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            document.querySelectorAll('.nav-dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+}
+
+// Theme Toggle functionality
+function initializeThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    const mobileThemeIcon = document.getElementById('mobile-theme-icon');
+    const body = document.body;
+    
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    body.setAttribute('data-theme', currentTheme);
+    
+    // Update icons based on current theme
+    updateThemeIcons(currentTheme);
+    
+    // Desktop theme toggle event listener
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            toggleTheme();
+        });
+    }
+    
+    // Mobile theme toggle event listener
+    if (mobileThemeToggle) {
+        mobileThemeToggle.addEventListener('click', function() {
+            toggleTheme();
+        });
+    }
+    
+    function toggleTheme() {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // Update theme
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Update icons
+        updateThemeIcons(newTheme);
+        
+        // Add transition effect
+        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+        setTimeout(() => {
+            body.style.transition = '';
+        }, 300);
+    }
+    
+    function updateThemeIcons(theme) {
+        if (theme === 'dark') {
+            if (themeIcon) {
+                themeIcon.className = 'fas fa-sun';
+            }
+            if (mobileThemeIcon) {
+                mobileThemeIcon.className = 'fas fa-sun';
+            }
+            if (themeToggle) {
+                themeToggle.title = 'Switch to Light Mode';
+            }
+            if (mobileThemeToggle) {
+                mobileThemeToggle.title = 'Switch to Light Mode';
+            }
+        } else {
+            if (themeIcon) {
+                themeIcon.className = 'fas fa-moon';
+            }
+            if (mobileThemeIcon) {
+                mobileThemeIcon.className = 'fas fa-moon';
+            }
+            if (themeToggle) {
+                themeToggle.title = 'Switch to Dark Mode';
+            }
+            if (mobileThemeToggle) {
+                mobileThemeToggle.title = 'Switch to Dark Mode';
+            }
+        }
+    }
+}
+
 // Carousel functionality
 function initializeCarousel() {
     const carousel = document.getElementById('hero-carousel');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     const indicators = document.getElementById('carousel-indicators');
+    
+    // Skip if no carousel elements exist
+    if (!carousel || !prevBtn || !nextBtn || !indicators) {
+        console.log('Carousel elements not found, skipping carousel initialization');
+        return;
+    }
     
     let currentSlide = 0;
     let slides = [];
@@ -270,20 +558,66 @@ function loadContentFromAdmin() {
     loadServicesContent();
     loadGalleryContent();
     loadContactContent();
+    loadNavigationContent();
+}
+
+// Load content for navigation sections
+function loadNavigationContent() {
+    const sections = [
+        'visi-misi', 'motto-layanan', 'struktur-organisasi', 'maklumat-pelayanan', 'kompensasi-layanan',
+        'jangka-waktu-pelayanan', 'mekanisme-pengaduan', 'pengelola-petugas', 'sarana-pengaduan',
+        'persyaratan', 'alur-mekanisme', 'biaya-layanan', 'survey-kepuasan', 'produk-layanan',
+        'berita', 'infografis', 'tentang', 'kontak'
+    ];
+    
+    sections.forEach(sectionId => {
+        const contentElement = document.querySelector(`#${sectionId}-content`);
+        if (contentElement && !contentElement.innerHTML.trim()) {
+            loadDefaultContent(`#${sectionId}`, contentElement);
+        }
+    });
 }
 
 function loadHeroContent() {
+    console.log('Loading hero content...');
+    
     // Load hero content from admin
     const heroData = localStorage.getItem('content_hero');
+    const titleElement = document.getElementById('hero-title');
+    const subtitleElement = document.getElementById('hero-subtitle');
+    
+    console.log('Hero elements found:', { titleElement, subtitleElement });
+    
     if (heroData) {
-        const data = JSON.parse(heroData);
-        if (data.title) {
-            document.getElementById('hero-title').textContent = data.title;
-        }
-        if (data.description) {
-            document.getElementById('hero-subtitle').textContent = data.description;
+        try {
+            const data = JSON.parse(heroData);
+            if (data.title && titleElement) {
+                titleElement.textContent = data.title;
+                console.log('Hero title updated from admin data');
+            }
+            if (data.description && subtitleElement) {
+                subtitleElement.textContent = data.description;
+                console.log('Hero subtitle updated from admin data');
+            }
+        } catch (e) {
+            console.log('Error parsing hero data:', e);
         }
     }
+    
+    // Ensure hero content is visible even without admin data
+    if (titleElement && !titleElement.textContent.trim()) {
+        titleElement.textContent = 'Selamat Datang di Puskesmas Modern';
+        console.log('Hero title set to default');
+    }
+    if (subtitleElement && !subtitleElement.textContent.trim()) {
+        subtitleElement.textContent = 'Layanan kesehatan terbaik untuk keluarga Anda';
+        console.log('Hero subtitle set to default');
+    }
+    
+    console.log('Hero content loaded:', {
+        title: titleElement?.textContent,
+        subtitle: subtitleElement?.textContent
+    });
 }
 
 function loadAboutContent() {
@@ -468,7 +802,7 @@ function showNotification(message, type = 'info') {
 function initializeLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
     
-    if (!loadingScreen) return;
+    if (!loadingScreen) return; // Skip if no loading screen element
     
     // Hide loading screen after page loads
     window.addEventListener('load', function() {
@@ -584,3 +918,122 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Admin Integration System
+function initializeAdminIntegration() {
+    // Check if we're on a content page
+    const contentBody = document.querySelector('.content-body[id$="-content"]');
+    
+    if (contentBody) {
+        loadAdminContent();
+    }
+}
+
+function loadAdminContent() {
+    // Get current page ID from content body
+    const contentBody = document.querySelector('.content-body[id$="-content"]');
+    if (!contentBody) return;
+    
+    const pageId = contentBody.id.replace('-content', '');
+    
+    // Try to load from localStorage (admin data)
+    const adminData = localStorage.getItem('adminContent');
+    if (adminData) {
+        try {
+            const data = JSON.parse(adminData);
+            if (data[pageId]) {
+                contentBody.innerHTML = data[pageId];
+                return;
+            }
+        } catch (e) {
+            console.log('Error parsing admin data:', e);
+        }
+    }
+    
+    // Fallback to default content
+    loadDefaultContent(pageId, contentBody);
+}
+
+function loadDefaultContent(pageId, contentElement) {
+    const defaultContent = {
+        'maklumat-pelayanan': `
+            <div class="content-item">
+                <h3><i class="fas fa-info-circle"></i> Maklumat Pelayanan</h3>
+                <p>Informasi lengkap tentang pelayanan yang disediakan oleh Puskesmas Modern.</p>
+                <div class="content-grid">
+                    <div class="content-item">
+                        <h4><i class="fas fa-clock"></i> Jam Operasional</h4>
+                        <p>Senin - Jumat: 07:00 - 16:00<br>Sabtu: 07:00 - 12:00<br>Minggu: Tutup</p>
+                    </div>
+                    <div class="content-item">
+                        <h4><i class="fas fa-phone"></i> Kontak Darurat</h4>
+                        <p>Hotline: 0812-3456-7890<br>Email: emergency@puskesmasmodern.com</p>
+                    </div>
+                </div>
+            </div>
+        `,
+        'persyaratan': `
+            <div class="content-item">
+                <h3><i class="fas fa-clipboard-list"></i> Persyaratan Pelayanan</h3>
+                <p>Berikut adalah persyaratan yang harus dipenuhi untuk mendapatkan pelayanan kesehatan.</p>
+                <div class="content-grid">
+                    <div class="content-item">
+                        <h4><i class="fas fa-id-card"></i> Identitas Diri</h4>
+                        <ul>
+                            <li>KTP atau identitas resmi lainnya</li>
+                            <li>Kartu Keluarga (KK)</li>
+                            <li>Surat keterangan domisili</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `,
+        'kompensasi-layanan': `
+            <div class="content-item">
+                <h3><i class="fas fa-hand-holding-heart"></i> Kompensasi Layanan</h3>
+                <p>Informasi tentang kompensasi dan ganti rugi yang diberikan Puskesmas Modern.</p>
+                <div class="content-grid">
+                    <div class="content-item">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Ganti Rugi</h4>
+                        <p>Kompensasi diberikan jika terjadi kelalaian dalam pelayanan kesehatan.</p>
+                    </div>
+                </div>
+            </div>
+        `,
+        'produk-layanan': `
+            <div class="content-item">
+                <h3><i class="fas fa-medkit"></i> Produk Layanan</h3>
+                <p>Berbagai produk dan layanan kesehatan yang disediakan oleh Puskesmas Modern.</p>
+                <div class="content-grid">
+                    <div class="content-item">
+                        <h4><i class="fas fa-user-md"></i> Konsultasi Medis</h4>
+                        <p>Konsultasi dengan dokter umum dan spesialis untuk diagnosis dan pengobatan.</p>
+                    </div>
+                </div>
+            </div>
+        `,
+        'infografis': `
+            <div class="content-item">
+                <h3><i class="fas fa-chart-bar"></i> Infografis Kesehatan</h3>
+                <p>Koleksi infografis kesehatan yang informatif dan mudah dipahami.</p>
+                <div class="content-grid">
+                    <div class="content-item">
+                        <h4><i class="fas fa-heartbeat"></i> Tips Kesehatan Jantung</h4>
+                        <p>Infografis tentang cara menjaga kesehatan jantung dengan pola hidup sehat.</p>
+                    </div>
+                </div>
+            </div>
+        `
+    };
+    
+    if (defaultContent[pageId]) {
+        contentElement.innerHTML = defaultContent[pageId];
+    }
+}
+
+// Listen for admin data updates
+window.addEventListener('storage', function(e) {
+    if (e.key === 'adminContent') {
+        loadAdminContent();
+    }
+});

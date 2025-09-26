@@ -145,44 +145,13 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-carousel" id="hero-carousel">
-            <!-- Carousel items will be dynamically loaded -->
-        </div>
-        
-        <!-- Floating Particles -->
-        <div class="floating-particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-        
         <div class="hero-content">
             <h1 class="hero-title">Selamat Datang di Puskesmas Modern</h1>
             <p class="hero-subtitle">Layanan kesehatan terbaik untuk keluarga Anda</p>
             <div class="hero-buttons">
-                <a href="persyaratan.html" class="btn btn-primary">
-                    <i class="fas fa-arrow-right"></i>
-                    <span>Lihat Layanan</span>
-                </a>
-                <a href="kontak.html" class="btn btn-secondary">
-                    <i class="fas fa-phone"></i>
-                    <span>Hubungi Kami</span>
-                </a>
+                <a href="persyaratan.html" class="btn btn-primary">Lihat Layanan</a>
+                <a href="kontak.html" class="btn btn-secondary">Hubungi Kami</a>
             </div>
-        </div>
-        <div class="carousel-controls">
-            <button class="carousel-btn prev" id="prev-btn">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="carousel-btn next" id="next-btn">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
-        <div class="carousel-indicators" id="carousel-indicators">
-            <!-- Indicators will be dynamically generated -->
         </div>
     </section>
 
@@ -287,64 +256,69 @@
                 <p class="section-subtitle">Kami siap melayani kebutuhan kesehatan Anda</p>
             </div>
             <div class="contact-content">
-                <!-- Kolom 1: Content & Form -->
-                <div class="contact-left">
-                    <div class="contact-text">
-                        <h3 class="contact-title">Manfaat Menggunakan Puskesmas Modern</h3>
-                        <p class="contact-description">Puskesmas Modern hadir untuk mendukung pelayanan kesehatan yang terbaik (modern) serta terpadu untuk masyarakat.</p>
-                        <h4 class="contact-subtitle">Hubungi Kami!</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Alamat</h3>
+                            <p>Jl. Kesehatan No. 123<br>Kelurahan Modern, Kecamatan Sehat<br>Kota Modern 12345</p>
+                        </div>
                     </div>
-                    <div class="contact-form">
-                        <form id="contact-form">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Nama lengkap Anda" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Alamat email" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" name="message" placeholder="Pesan Anda" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Kirim Pesan</button>
-                        </form>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telepon</h3>
+                            <p>(021) 1234-5678<br>0812-3456-7890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>info@puskesmasmodern.com<br>layanan@puskesmasmodern.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Jam Operasional</h3>
+                            <p>Senin - Jumat: 07:00 - 16:00<br>Sabtu: 07:00 - 12:00</p>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Kolom 2: Benefits Cards (2x2 Grid) -->
-                <div class="contact-right">
-                    <div class="benefits-grid">
-                        <!-- Baris 1 -->
-                        <div class="benefit-card card-white">
-                            <div class="benefit-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h4 class="benefit-title">Akses Kapan Saja, Dimana Saja</h4>
-                            <p class="benefit-description">Layanan kesehatan dapat diakses secara real-time tanpa terikat waktu maupun lokasi.</p>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Nama Lengkap" required>
                         </div>
-                        <div class="benefit-card card-green">
-                            <div class="benefit-icon">
-                                <i class="fas fa-sync-alt"></i>
-                            </div>
-                            <h4 class="benefit-title">Layanan Kesehatan Lengkap</h4>
-                            <p class="benefit-description">Mulai dari konsultasi, pemeriksaan, imunisasi, hingga kesehatan ibu & anak tersedia dalam satu sistem terpadu.</p>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
                         </div>
-                        
-                        <!-- Baris 2 -->
-                        <div class="benefit-card card-green">
-                            <div class="benefit-icon">
-                                <i class="fas fa-user-md"></i>
-                            </div>
-                            <h4 class="benefit-title">Proses Pelayanan Lebih Mudah</h4>
-                            <p class="benefit-description">Pendaftaran, konsultasi, hingga hasil pemeriksaan dapat dilakukan dengan cepat, transparan, dan digital.</p>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Nomor Telepon" required>
                         </div>
-                        <div class="benefit-card card-white">
-                            <div class="benefit-icon">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <h4 class="benefit-title">Fleksibel dan Terintegrasi</h4>
-                            <p class="benefit-description">Disesuaikan dengan kebutuhan masyarakat, mendukung berbagai program kesehatan, serta terhubung antarbagian.</p>
+                        <div class="form-group">
+                            <select id="subject" name="subject" required>
+                                <option value="">Pilih Subjek</option>
+                                <option value="konsultasi">Konsultasi Medis</option>
+                                <option value="jadwal">Jadwal Dokter</option>
+                                <option value="keluhan">Keluhan Layanan</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Pesan Anda" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
                 </div>
             </div>
         </div>
